@@ -8,6 +8,7 @@ Projeto com múltiplas landing pages da Tarso Tecnologia para diferentes ICPs, p
 - `ti.html` — Diretores de TI (diagnóstico de arquitetura).
 - `portal.html` — CEOs/COOs que precisam de portal/plataforma digital.
 - `ecom.html` — Gestores de e-commerce / produto digital.
+- `cfo.html` — CFOs e Heads de Operações que precisam de integração financeira.
 
 ## Como usar
 

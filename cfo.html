@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Integração Financeira e Operacional — CFO / Operações | Tarso Tecnologia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Landing page para CFOs e Heads de Operações que precisam integrar o financeiro à operação com automação, conciliação e dados confiáveis." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">TARSO <span>TECNOLOGIA</span></div>
+      <nav class="nav-links">
+        <a href="index.html">Hub de LPs</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow">Para CFOs e Heads de Operações</p>
+        <h1>Integre o financeiro à operação e ganhe previsibilidade real de caixa e resultado.</h1>
+        <p class="hero-subtitle">
+          A Tarso conecta ERPs, bancos, gateways de pagamento e sistemas internos para entregar conciliação automatizada,
+          dados confiáveis e decisões em tempo quase real.
+        </p>
+        <a href="#diagnostico-financeiro" class="btn btn-primary">Solicitar diagnóstico de integração financeira</a>
+      </div>
+      <div class="hero-media">
+        <div class="hero-card">
+          <h3>Impacto típico em clientes Tarso</h3>
+          <ul class="hero-metrics">
+            <li><strong>-80%</strong> tempo gasto em conciliação manual</li>
+            <li><strong>+100%</strong> visibilidade de fluxo de caixa</li>
+            <li><strong>-X%</strong> erros e retrabalho em fechamento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="problemas">
+    <div class="container">
+      <h2>Se isso soa familiar, sua operação está carregando custo invisível.</h2>
+      <p class="section-subtitle">
+        Quanto mais a empresa cresce, mais caro fica manter processos financeiros e operacionais desconectados.
+      </p>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Conciliação manual e lenta</h3>
+          <p>Time financeiro preso em planilhas para fechar o mês, dia após dia, sempre no limite do prazo.</p>
+        </div>
+        <div class="card">
+          <h3>Dados inconsistentes entre sistemas</h3>
+          <p>O que aparece no ERP não bate com o banco, com a adquirente ou com relatórios internos.</p>
+        </div>
+        <div class="card">
+          <h3>Falta de previsibilidade</h3>
+          <p>Sem visão consolidada de recebíveis, custos e indicadores, a tomada de decisão fica no “feeling”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>O que a Tarso faz pela sua área financeira e operacional</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Integração de sistemas financeiros</h3>
+          <p>Conectamos ERP, bancos, gateways, adquirentes e plataformas de vendas em um fluxo único de dados.</p>
+        </div>
+        <div class="card">
+          <h3>Conciliação automatizada</h3>
+          <p>Automatizamos rotinas de conciliação para que o time atue em exceções, não em digitação e conferência manual.</p>
+        </div>
+        <div class="card">
+          <h3>Dashboards financeiros e operacionais</h3>
+          <p>Painéis em tempo quase real com visão de fluxo de caixa, resultado, recebíveis e indicadores-chave.</p>
+        </div>
+        <div class="card">
+          <h3>Automação de rotinas de cobrança</h3>
+          <p>Fluxos automatizados para lembretes, renegociações e comunicação com clientes em atraso.</p>
+        </div>
+        <div class="card">
+          <h3>Compliance e rastreabilidade</h3>
+          <p>Logs e trilhas de auditoria que facilitam conversas com conselho, auditoria e investidores.</p>
+        </div>
+        <div class="card">
+          <h3>Soluções sob medida</h3>
+          <p>Arquiteturas construídas em cima da realidade da sua empresa, não de um produto genérico.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cta" id="diagnostico-financeiro">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Peça um diagnóstico de integração financeira e operacional</h2>
+        <p>
+          Em uma conversa estruturada de até 60 minutos, mapeamos os principais gargalos entre operação e financeiro
+          e sugerimos um plano de integração e automação sob medida.
+        </p>
+
+        <form
+          class="form"
+          action="https://SEU-N8N-ENDPOINT/webhook/tarso-captura-leads"
+          method="POST"
+        >
+          <div class="form-grid">
+            <input type="text" name="nome" placeholder="Seu nome" required />
+            <input type="email" name="email" placeholder="E-mail corporativo" required />
+            <input type="text" name="empresa" placeholder="Empresa" required />
+            <input type="text" name="cargo" placeholder="Seu cargo (CFO, COO, Head de Operações...)" required />
+            <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
+            <input type="text" name="erp_atual" placeholder="ERP / principais sistemas usados hoje" />
+          </div>
+
+          <input type="hidden" name="origem" value="LP CFO Operações - Vercel" />
+          <input type="hidden" name="utm_source" id="utm_source" value="" />
+          <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+          <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+
+          <button type="submit" class="btn btn-primary btn-block">
+            Quero o diagnóstico de integração
+          </button>
+          <p class="form-footnote">
+            Usamos a conversa para gerar clareza, não para empurrar solução fechada. Se fizer sentido para os dois lados,
+            avançamos para uma proposta.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const set = (name) => {
+        const el = document.getElementById(name);
+        if (el && params.get(name)) el.value = params.get(name);
+      };
+      ["utm_source", "utm_medium", "utm_campaign"].forEach(set);
+    })();
+  </script>
+</body>
+</html>

@@ -20,6 +20,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "cfo.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "assets/**/*",
       "use": "@vercel/static"
     }
