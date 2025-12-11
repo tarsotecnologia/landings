@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Protótipo de Portal Digital — Tarso Tecnologia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Landing page para CEOs e COOs que precisam de um portal ou plataforma digital." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">TARSO.TECH</div>
+      <nav class="nav-links">
+        <a href="index.html">Hub de LPs</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow">Para CEOs e COOs que querem digitalizar a operação</p>
+        <h1>Transforme processos confusos em um portal digital elegante e automatizado.</h1>
+        <p class="hero-subtitle">
+          Criamos portais e sistemas internos sob medida que reduzem custo operacional, eliminam retrabalho
+          e aumentam a visibilidade da sua operação.
+        </p>
+        <a href="#prototipo" class="btn btn-primary">Receber protótipo gratuito em 48h</a>
+      </div>
+      <div class="hero-media">
+        <div class="hero-card">
+          <h3>Impacto em operação real</h3>
+          <ul class="hero-metrics">
+            <li><strong>-50%</strong> tempo operacional</li>
+            <li><strong>-7</strong> processos manuais eliminados</li>
+            <li><strong>+100%</strong> visibilidade das operações</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Sua operação não precisa mais viver em planilhas e e-mails.</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Processos manuais</h3>
+          <p>Equipes gastam horas com tarefas repetitivas que poderiam ser automatizadas.</p>
+        </div>
+        <div class="card">
+          <h3>Zero visibilidade</h3>
+          <p>Sem dashboards e indicadores, é difícil tomar decisões rápidas e com segurança.</p>
+        </div>
+        <div class="card">
+          <h3>Sistemas desconectados</h3>
+          <p>Dados espalhados em múltiplas ferramentas, ERPs e planilhas sem integração.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cta" id="prototipo">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Peça um protótipo gratuito do seu portal</h2>
+        <p>
+          Em até 48 horas, nossa equipe envia um rascunho visual de como poderia ser o portal ideal
+          para sua operação — sem compromisso.
+        </p>
+
+        <form
+          class="form"
+          action="https://SEU-N8N-ENDPOINT/webhook/tarso-captura-leads"
+          method="POST"
+        >
+          <div class="form-grid">
+            <input type="text" name="nome" placeholder="Seu nome" required />
+            <input type="email" name="email" placeholder="E-mail corporativo" required />
+            <input type="text" name="empresa" placeholder="Empresa" required />
+            <input type="text" name="cargo" placeholder="Cargo" required />
+            <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
+            <input type="text" name="processo_principal" placeholder="Qual processo você quer digitalizar?" />
+          </div>
+
+          <input type="hidden" name="origem" value="LP Portal Digital - Vercel" />
+          <input type="hidden" name="utm_source" id="utm_source" value="" />
+          <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+          <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+
+          <button type="submit" class="btn btn-primary btn-block">
+            Quero receber o protótipo gratuito
+          </button>
+          <p class="form-footnote">Uma pessoa da Tarso entra em contato para alinhar o escopo antes do protótipo.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const set = (name) => {
+        const el = document.getElementById(name);
+        if (el && params.get(name)) el.value = params.get(name);
+      };
+      ["utm_source", "utm_medium", "utm_campaign"].forEach(set);
+    })();
+  </script>
+</body>
+</html>

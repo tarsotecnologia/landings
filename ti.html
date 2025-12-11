@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diagnóstico de Arquitetura — Diretores de TI | Tarso Tecnologia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Landing page focada em Diretores de TI para diagnóstico gratuito de arquitetura." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">TARSO.TECH</div>
+      <nav class="nav-links">
+        <a href="index.html">Hub de LPs</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow">Para Diretores de TI em empresas de médio e grande porte</p>
+        <h1>Sua TI deve acelerar o negócio, não travá-lo.</h1>
+        <p class="hero-subtitle">
+          A Tarso ajuda sua empresa a destravar performance, segurança e escalabilidade com arquitetura moderna,
+          operações confiáveis e redução inteligente de custos.
+        </p>
+        <a href="#diagnostico" class="btn btn-primary">Solicitar diagnóstico gratuito</a>
+      </div>
+      <div class="hero-media">
+        <div class="hero-card">
+          <h3>Resultados reais</h3>
+          <ul class="hero-metrics">
+            <li><strong>-40%</strong> custo de cloud</li>
+            <li><strong>-90%</strong> falhas críticas</li>
+            <li><strong>+70%</strong> velocidade de deploy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="problemas">
+    <div class="container">
+      <h2>Reconhece esses cenários na sua TI?</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Sistemas lentos e instáveis</h3>
+          <p>Aplicações caindo em pico de acesso e reclamações constantes das áreas internas.</p>
+        </div>
+        <div class="card">
+          <h3>Time apagando incêndio</h3>
+          <p>Ninguém consegue parar para pensar em inovação, só em correção de problemas.</p>
+        </div>
+        <div class="card">
+          <h3>Arquitetura cara e engessada</h3>
+          <p>Custo alto de cloud e medo de qualquer mudança porque “pode quebrar tudo”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cta" id="diagnostico">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Agende seu diagnóstico gratuito de arquitetura</h2>
+        <p>Uma conversa técnica de 30–45 minutos para mapear gargalos, riscos e oportunidades na sua TI.</p>
+
+        <form
+          class="form"
+          action="https://SEU-N8N-ENDPOINT/webhook/tarso-captura-leads"
+          method="POST"
+        >
+          <div class="form-grid">
+            <input type="text" name="nome" placeholder="Seu nome" required />
+            <input type="email" name="email" placeholder="E-mail corporativo" required />
+            <input type="text" name="empresa" placeholder="Empresa" required />
+            <input type="text" name="cargo" placeholder="Cargo" required />
+            <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
+          </div>
+
+          <input type="hidden" name="origem" value="LP Diretor de TI - Vercel" />
+          <input type="hidden" name="utm_source" id="utm_source" value="" />
+          <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+          <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+
+          <button type="submit" class="btn btn-primary btn-block">
+            Quero o diagnóstico gratuito
+          </button>
+          <p class="form-footnote">Sem spam. Apenas uma conversa técnica focada em soluções.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const set = (name) => {
+        const el = document.getElementById(name);
+        if (el && params.get(name)) el.value = params.get(name);
+      };
+      ["utm_source", "utm_medium", "utm_campaign"].forEach(set);
+    })();
+  </script>
+</body>
+</html>

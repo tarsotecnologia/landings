@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Análise de Performance — E-commerce | Tarso Tecnologia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Landing page para análise gratuita de performance de e-commerce." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">TARSO.TECH</div>
+      <nav class="nav-links">
+        <a href="index.html">Hub de LPs</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow">Para gestores de e-commerce e produto digital</p>
+        <h1>Seu e-commerce pode vender mais com o mesmo investimento.</h1>
+        <p class="hero-subtitle">
+          Nós destravamos velocidade, integração e conversão para que sua loja aguente campanha,
+          escala e crescimento sem travar.
+        </p>
+        <a href="#analise" class="btn btn-primary">Solicitar análise gratuita de performance</a>
+      </div>
+      <div class="hero-media">
+        <div class="hero-card">
+          <h3>Resultados típicos</h3>
+          <ul class="hero-metrics">
+            <li><strong>+27%</strong> conversão em 60 dias</li>
+            <li><strong>-35%</strong> abandono em checkout</li>
+            <li><strong>0</strong> quedas em campanhas críticas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="problemas">
+    <div class="container">
+      <h2>Seu e-commerce está vazando receita se isso é verdade:</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Checkout lento ou confuso</h3>
+          <p>Clientes desistem na última etapa por demora, erros ou excesso de atritos.</p>
+        </div>
+        <div class="card">
+          <h3>Quedas em campanhas</h3>
+          <p>Promoções importantes derrubam o site ou deixam tudo instável.</p>
+        </div>
+        <div class="card">
+          <h3>Integrações frágeis</h3>
+          <p>ERP, hubs, marketplaces e meios de pagamento não conversam direito.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cta" id="analise">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Peça sua análise gratuita de performance</h2>
+        <p>
+          Em uma análise técnica, mostramos onde seu e-commerce está perdendo vendas e quais melhorias
+          podem trazer resultado mais rápido.
+        </p>
+
+        <form
+          class="form"
+          action="https://SEU-N8N-ENDPOINT/webhook/tarso-captura-leads"
+          method="POST"
+        >
+          <div class="form-grid">
+            <input type="text" name="nome" placeholder="Seu nome" required />
+            <input type="email" name="email" placeholder="E-mail corporativo" required />
+            <input type="text" name="empresa" placeholder="Empresa" required />
+            <input type="text" name="cargo" placeholder="Cargo" required />
+            <input type="url" name="url_loja" placeholder="URL da loja / produto digital" required />
+            <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
+          </div>
+
+          <input type="hidden" name="origem" value="LP E-commerce - Vercel" />
+          <input type="hidden" name="utm_source" id="utm_source" value="" />
+          <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+          <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+
+          <button type="submit" class="btn btn-primary btn-block">
+            Quero a análise gratuita
+          </button>
+          <p class="form-footnote">
+            Análise sujeita à disponibilidade da agenda técnica da Tarso.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const set = (name) => {
+        const el = document.getElementById(name);
+        if (el && params.get(name)) el.value = params.get(name);
+      };
+      ["utm_source", "utm_medium", "utm_campaign"].forEach(set);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "name": "tarso-landing-multi",
+  "public": true,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ti.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "portal.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "ecom.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*",
+      "use": "@vercel/static"
+    }
+  ]
+}
