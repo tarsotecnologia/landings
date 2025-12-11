@@ -10,7 +10,7 @@
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">TARSO.TECH</div>
+      <div class="logo">TARSO <span>TECNOLOGIA</span></div>
       <nav class="nav-links">
         <a href="index.html">Hub de LPs</a>
       </nav>
@@ -70,17 +70,24 @@
           podem trazer resultado mais rápido.
         </p>
 
+        <div id="success-box-ecom" class="success-message" style="display:none;">
+          <h3>Mensagem enviada com sucesso! 🎉</h3>
+          <p>Recebemos seu pedido de análise. Em breve alguém da Tarso entra em contato com próximos passos.</p>
+        </div>
+
         <form
+          id="form-ecom"
           class="form"
           action="https://tarso-hub.manus.space/api/lp_captura_leads"
           method="POST"
+          target="form_target_ecom"
         >
           <div class="form-grid">
             <input type="text" name="nome" placeholder="Seu nome" required />
             <input type="email" name="email" placeholder="E-mail corporativo" required />
             <input type="text" name="empresa" placeholder="Empresa" required />
             <input type="text" name="cargo" placeholder="Cargo" required />
-            <input type="text" name="url_loja" placeholder="URL da loja / produto digital" required />
+            <input type="url" name="url_loja" placeholder="URL da loja / produto digital" required />
             <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
           </div>
 
@@ -89,26 +96,61 @@
           <input type="hidden" name="utm_medium" id="utm_medium" value="" />
           <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
 
-          <button type="submit" class="btn btn-primary btn-block">
+          <button type="submit" id="submit-btn-ecom" class="btn btn-primary btn-block">
             Quero a análise gratuita
           </button>
           <p class="form-footnote">
             Análise sujeita à disponibilidade da agenda técnica da Tarso.
           </p>
         </form>
+
+        <iframe
+          name="form_target_ecom"
+          id="form_target_ecom"
+          style="width:0;height:0;border:0;visibility:hidden;"
+        ></iframe>
       </div>
     </div>
   </section>
 
   <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const set = (name) => {
-        const el = document.getElementById(name);
-        if (el && params.get(name)) el.value = params.get(name);
-      };
-      ["utm_source", "utm_medium", "utm_campaign"].forEach(set);
-    })();
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    ["utm_source", "utm_medium", "utm_campaign"].forEach((name) => {
+      const el = document.getElementById(name);
+      if (el && params.get(name)) {
+        el.value = params.get(name);
+      }
+    });
+
+    const form = document.getElementById("form-ecom");
+    const iframe = document.getElementById("form_target_ecom");
+    const successBox = document.getElementById("success-box-ecom");
+    const submitBtn = document.getElementById("submit-btn-ecom");
+
+    if (form && iframe) {
+      form.addEventListener("submit", function () {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+        }
+      });
+
+      iframe.addEventListener("load", function () {
+        if (successBox) {
+          successBox.style.display = "block";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Mensagem enviada! ✅";
+        }
+        if (form) {
+          form.reset();
+        }
+      });
+    }
+  })();
   </script>
 </body>
 </html>

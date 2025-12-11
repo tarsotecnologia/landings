@@ -10,7 +10,7 @@
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">TARSO.TECH</div>
+      <div class="logo">TARSO <span>TECNOLOGIA</span></div>
       <nav class="nav-links">
         <a href="index.html">Hub de LPs</a>
       </nav>
@@ -65,12 +65,19 @@
     <div class="container">
       <div class="cta-card">
         <h2>Agende seu diagnóstico gratuito de arquitetura</h2>
-        <p>Uma conversa técnica de 20–30 minutos para mapear gargalos, riscos e oportunidades na sua TI.</p>
+        <p>Uma conversa técnica de 30–45 minutos para mapear gargalos, riscos e oportunidades na sua TI.</p>
+
+        <div id="success-box" class="success-message" style="display:none;">
+          <h3>Mensagem enviada com sucesso! 🎉</h3>
+          <p>Obrigado! Em breve alguém da Tarso entra em contato com você.</p>
+        </div>
 
         <form
+          id="form-ti"
           class="form"
-          action="https://tarso-hub.manus.space/api/lp_captura_leads"
+          action="https://SEU-ENDPOINT-MANUS-AQUI"
           method="POST"
+          target="form_target_ti"
         >
           <div class="form-grid">
             <input type="text" name="nome" placeholder="Seu nome" required />
@@ -85,24 +92,61 @@
           <input type="hidden" name="utm_medium" id="utm_medium" value="" />
           <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
 
-          <button type="submit" class="btn btn-primary btn-block">
+          <button type="submit" id="submit-btn-ti" class="btn btn-primary btn-block">
             Quero o diagnóstico gratuito
           </button>
           <p class="form-footnote">Sem spam. Apenas uma conversa técnica focada em soluções.</p>
         </form>
+
+        <iframe
+          name="form_target_ti"
+          id="form_target_ti"
+          style="width:0;height:0;border:0;visibility:hidden;"
+        ></iframe>
       </div>
     </div>
   </section>
 
   <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const set = (name) => {
-        const el = document.getElementById(name);
-        if (el && params.get(name)) el.value = params.get(name);
-      };
-      ["utm_source", "utm_medium", "utm_campaign"].forEach(set);
-    })();
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+
+    // Preenche UTMs se existirem
+    ["utm_source", "utm_medium", "utm_campaign"].forEach((name) => {
+      const el = document.getElementById(name);
+      if (el && params.get(name)) {
+        el.value = params.get(name);
+      }
+    });
+
+    const form = document.getElementById("form-ti");
+    const iframe = document.getElementById("form_target_ti");
+    const successBox = document.getElementById("success-box");
+    const submitBtn = document.getElementById("submit-btn-ti");
+
+    if (form && iframe) {
+      form.addEventListener("submit", function () {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+        }
+      });
+
+      iframe.addEventListener("load", function () {
+        if (successBox) {
+          successBox.style.display = "block";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Mensagem enviada! ✅";
+        }
+        if (form) {
+          form.reset();
+        }
+      });
+    }
+  })();
   </script>
 </body>
 </html>

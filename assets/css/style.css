@@ -273,6 +273,18 @@ input::placeholder {
   color: #93c5fd;
 }
 
+/* SUCCESS MESSAGE */
+
+.success-message {
+  background: #022c22;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  color: #d1fae5;
+  border: 1px solid #10b981;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 768px) {

@@ -10,7 +10,7 @@
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">TARSO.TECH</div>
+      <div class="logo">TARSO <span>TECNOLOGIA</span></div>
       <nav class="nav-links">
         <a href="index.html">Hub de LPs</a>
       </nav>
@@ -44,20 +44,6 @@
   <section class="section">
     <div class="container">
       <h2>Sua operação não precisa mais viver em planilhas e e-mails.</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <h3>Processos manuais</h3>
-          <p>Equipes gastam horas com tarefas repetitivas que poderiam ser automatizadas.</p>
-        </div>
-        <div class="card">
-          <h3>Zero visibilidade</h3>
-          <p>Sem dashboards e indicadores, é difícil tomar decisões rápidas e com segurança.</p>
-        </div>
-        <div class="card">
-          <h3>Sistemas desconectados</h3>
-          <p>Dados espalhados em múltiplas ferramentas, ERPs e planilhas sem integração.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -70,10 +56,17 @@
           para sua operação — sem compromisso.
         </p>
 
+        <div id="success-box-portal" class="success-message" style="display:none;">
+          <h3>Mensagem enviada com sucesso! 🎉</h3>
+          <p>Recebemos seu pedido de protótipo. Em breve alguém da Tarso entra em contato para alinhar o escopo.</p>
+        </div>
+
         <form
+          id="form-portal"
           class="form"
           action="https://tarso-hub.manus.space/api/lp_captura_leads"
           method="POST"
+          target="form_target_portal"
         >
           <div class="form-grid">
             <input type="text" name="nome" placeholder="Seu nome" required />
@@ -81,7 +74,7 @@
             <input type="text" name="empresa" placeholder="Empresa" required />
             <input type="text" name="cargo" placeholder="Cargo" required />
             <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
-            <input type="text" name="processo_principal" placeholder="Qual processo você quer digitalizar?" required/>
+            <input type="text" name="processo_principal" placeholder="Qual processo você quer digitalizar?" />
           </div>
 
           <input type="hidden" name="origem" value="LP Portal Digital - Vercel" />
@@ -89,24 +82,59 @@
           <input type="hidden" name="utm_medium" id="utm_medium" value="" />
           <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
 
-          <button type="submit" class="btn btn-primary btn-block">
+          <button type="submit" id="submit-btn-portal" class="btn btn-primary btn-block">
             Quero receber o protótipo gratuito
           </button>
           <p class="form-footnote">Uma pessoa da Tarso entra em contato para alinhar o escopo antes do protótipo.</p>
         </form>
+
+        <iframe
+          name="form_target_portal"
+          id="form_target_portal"
+          style="width:0;height:0;border:0;visibility:hidden;"
+        ></iframe>
       </div>
     </div>
   </section>
 
   <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const set = (name) => {
-        const el = document.getElementById(name);
-        if (el && params.get(name)) el.value = params.get(name);
-      };
-      ["utm_source", "utm_medium", "utm_campaign"].forEach(set);
-    })();
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    ["utm_source", "utm_medium", "utm_campaign"].forEach((name) => {
+      const el = document.getElementById(name);
+      if (el && params.get(name)) {
+        el.value = params.get(name);
+      }
+    });
+
+    const form = document.getElementById("form-portal");
+    const iframe = document.getElementById("form_target_portal");
+    const successBox = document.getElementById("success-box-portal");
+    const submitBtn = document.getElementById("submit-btn-portal");
+
+    if (form && iframe) {
+      form.addEventListener("submit", function () {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+        }
+      });
+
+      iframe.addEventListener("load", function () {
+        if (successBox) {
+          successBox.style.display = "block";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Mensagem enviada! ✅";
+        }
+        if (form) {
+          form.reset();
+        }
+      });
+    }
+  })();
   </script>
 </body>
 </html>

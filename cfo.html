@@ -64,38 +64,6 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2>O que a Tarso faz pela sua área financeira e operacional</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <h3>Integração de sistemas financeiros</h3>
-          <p>Conectamos ERP, bancos, gateways, adquirentes e plataformas de vendas em um fluxo único de dados.</p>
-        </div>
-        <div class="card">
-          <h3>Conciliação automatizada</h3>
-          <p>Automatizamos rotinas de conciliação para que o time atue em exceções, não em digitação e conferência manual.</p>
-        </div>
-        <div class="card">
-          <h3>Dashboards financeiros e operacionais</h3>
-          <p>Painéis em tempo quase real com visão de fluxo de caixa, resultado, recebíveis e indicadores-chave.</p>
-        </div>
-        <div class="card">
-          <h3>Automação de rotinas de cobrança</h3>
-          <p>Fluxos automatizados para lembretes, renegociações e comunicação com clientes em atraso.</p>
-        </div>
-        <div class="card">
-          <h3>Compliance e rastreabilidade</h3>
-          <p>Logs e trilhas de auditoria que facilitam conversas com conselho, auditoria e investidores.</p>
-        </div>
-        <div class="card">
-          <h3>Soluções sob medida</h3>
-          <p>Arquiteturas construídas em cima da realidade da sua empresa, não de um produto genérico.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section section-cta" id="diagnostico-financeiro">
     <div class="container">
       <div class="cta-card">
@@ -105,10 +73,20 @@
           e sugerimos um plano de integração e automação sob medida.
         </p>
 
+        <div id="success-box-cfo" class="success-message" style="display:none;">
+          <h3>Pedido enviado com sucesso! 🎉</h3>
+          <p>
+            Recebemos seu pedido de diagnóstico. Vamos analisar seu contexto e alguém da Tarso entra em contato
+            com próximos passos.
+          </p>
+        </div>
+
         <form
+          id="form-cfo"
           class="form"
           action="https://tarso-hub.manus.space/api/lp_captura_leads"
           method="POST"
+          target="form_target_cfo"
         >
           <div class="form-grid">
             <input type="text" name="nome" placeholder="Seu nome" required />
@@ -124,7 +102,7 @@
           <input type="hidden" name="utm_medium" id="utm_medium" value="" />
           <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
 
-          <button type="submit" class="btn btn-primary btn-block">
+          <button type="submit" id="submit-btn-cfo" class="btn btn-primary btn-block">
             Quero o diagnóstico de integração
           </button>
           <p class="form-footnote">
@@ -132,19 +110,54 @@
             avançamos para uma proposta.
           </p>
         </form>
+
+        <iframe
+          name="form_target_cfo"
+          id="form_target_cfo"
+          style="width:0;height:0;border:0;visibility:hidden;"
+        ></iframe>
       </div>
     </div>
   </section>
 
   <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const set = (name) => {
-        const el = document.getElementById(name);
-        if (el && params.get(name)) el.value = params.get(name);
-      };
-      ["utm_source", "utm_medium", "utm_campaign"].forEach(set);
-    })();
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    ["utm_source", "utm_medium", "utm_campaign"].forEach((name) => {
+      const el = document.getElementById(name);
+      if (el && params.get(name)) {
+        el.value = params.get(name);
+      }
+    });
+
+    const form = document.getElementById("form-cfo");
+    const iframe = document.getElementById("form_target_cfo");
+    const successBox = document.getElementById("success-box-cfo");
+    const submitBtn = document.getElementById("submit-btn-cfo");
+
+    if (form && iframe) {
+      form.addEventListener("submit", function () {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+        }
+      });
+
+      iframe.addEventListener("load", function () {
+        if (successBox) {
+          successBox.style.display = "block";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Mensagem enviada! ✅";
+        }
+        if (form) {
+          form.reset();
+        }
+      });
+    }
+  })();
   </script>
 </body>
 </html>
