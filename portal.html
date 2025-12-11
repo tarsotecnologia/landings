@@ -72,7 +72,7 @@
 
         <form
           class="form"
-          action="https://SEU-N8N-ENDPOINT/webhook/tarso-captura-leads"
+          action="https://tarso-hub.manus.space/api/lp_captura_leads"
           method="POST"
         >
           <div class="form-grid">
@@ -81,7 +81,7 @@
             <input type="text" name="empresa" placeholder="Empresa" required />
             <input type="text" name="cargo" placeholder="Cargo" required />
             <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
-            <input type="text" name="processo_principal" placeholder="Qual processo você quer digitalizar?" />
+            <input type="text" name="processo_principal" placeholder="Qual processo você quer digitalizar?" required/>
           </div>
 
           <input type="hidden" name="origem" value="LP Portal Digital - Vercel" />
