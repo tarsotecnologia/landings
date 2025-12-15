@@ -10,14 +10,18 @@
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">TARSO <span>TECNOLOGIA</span></div>
+      <div class="logo"><a href="index.html"><img src="assets/images/logo-tarso.svg" alt="logo-tarso" /></a></div>
       <nav class="nav-links">
-        <a href="index.html">Hub de LPs</a>
+        <a href="index.html">Início</a>
+        <a href="ti.html">Diretor de TI</a>
+        <a href="portal.html">Portal Digital</a>
+        <a href="ecom.html">E-commerce</a>
+        <a href="cfo.html">CFO / Operações</a>
       </nav>
     </div>
   </header>
 
-  <section class="section hero">
+  <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
         <p class="eyebrow">Para gestores de e-commerce e produto digital</p>
@@ -28,34 +32,49 @@
         </p>
         <a href="#analise" class="btn btn-primary">Solicitar análise gratuita de performance</a>
       </div>
-      <div class="hero-media">
-        <div class="hero-card">
-          <h3>Resultados típicos</h3>
-          <ul class="hero-metrics">
-            <li><strong>+27%</strong> conversão em 60 dias</li>
-            <li><strong>-35%</strong> abandono em checkout</li>
-            <li><strong>0</strong> quedas em campanhas críticas</li>
-          </ul>
-        </div>
+      <div class="lp">
+        <img src="assets/images/e-commerce.png" alt="" />
       </div>
     </div>
   </section>
 
-  <section class="section" id="problemas">
+    <section class="section bg-azul">
     <div class="container">
-      <h2>Seu e-commerce está vazando receita se isso é verdade:</h2>
+      <div class="">
+          <h3 class="title mb-2">Resultados típicos</h3>
+          <ul class="hero-metrics">
+            <li><img src="assets/images/mais.svg" alt="mais" /><strong>+27%</strong> conversão<br/> em 60 dias</li>
+            <li><img src="assets/images/menos.svg" alt="menos" /><strong>-35%</strong> abandono<br/> em checkout</li>
+            <li><img src="assets/images/ok.svg" alt="ok" /><strong>0</strong> quedas em<br/> campanhas críticas</li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-marinho" id="problemas">
+    <div class="container">
+      <h2 class="title">Seu e-commerce está vazando receita se isso é verdade:</h2>
       <div class="cards-grid">
-        <div class="card">
-          <h3>Checkout lento ou confuso</h3>
-          <p>Clientes desistem na última etapa por demora, erros ou excesso de atritos.</p>
+        <div class="link-card">
+          <img src="assets/images/checkout.svg" alt="checkout" />
+          <div>
+            <h3>Checkout lento ou confuso</h3>
+            <p>Clientes desistem na última etapa por demora, erros ou excesso de atritos.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Quedas em campanhas</h3>
-          <p>Promoções importantes derrubam o site ou deixam tudo instável.</p>
+        <div class="link-card">
+          <img src="assets/images/queda.svg" alt="queda" />
+          <div>
+            <h3>Quedas em campanhas</h3>
+            <p>Promoções importantes derrubam o site ou deixam tudo instável.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Integrações frágeis</h3>
-          <p>ERP, hubs, marketplaces e meios de pagamento não conversam direito.</p>
+        <div class="link-card">
+          <img src="assets/images/integracoes.svg" alt="integracoes" />
+          <div>
+            <h3>Integrações frágeis</h3>
+            <p>ERP, hubs, marketplaces e meios de pagamento não conversam direito.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -63,7 +82,7 @@
 
   <section class="section section-cta" id="analise">
     <div class="container">
-      <div class="cta-card">
+      <div class="cta-card hero">
         <h2>Peça sua análise gratuita de performance</h2>
         <p>
           Em uma análise técnica, mostramos onde seu e-commerce está perdendo vendas e quais melhorias
@@ -112,6 +131,10 @@
       </div>
     </div>
   </section>
+
+  <footer>
+    <address class="container">Copyright ©2026 Tarso Tech · Todos os direitos reservados.</address>
+  </footer>
 
   <script>
   (function () {

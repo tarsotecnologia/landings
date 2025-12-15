@@ -10,14 +10,18 @@
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">TARSO <span>TECNOLOGIA</span></div>
+      <div class="logo"><a href="index.html"><img src="assets/images/logo-tarso.svg" alt="logo-tarso" /></a></div>
       <nav class="nav-links">
-        <a href="index.html">Hub de LPs</a>
+        <a href="index.html">Início</a>
+        <a href="ti.html">Diretor de TI</a>
+        <a href="portal.html">Portal Digital</a>
+        <a href="ecom.html">E-commerce</a>
+        <a href="cfo.html">CFO / Operações</a>
       </nav>
     </div>
   </header>
 
-  <section class="section hero">
+  <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
         <p class="eyebrow">Para Diretores de TI em empresas de médio e grande porte</p>
@@ -28,34 +32,49 @@
         </p>
         <a href="#diagnostico" class="btn btn-primary">Solicitar diagnóstico gratuito</a>
       </div>
-      <div class="hero-media">
-        <div class="hero-card">
-          <h3>Resultados reais</h3>
-          <ul class="hero-metrics">
-            <li><strong>-40%</strong> custo de cloud</li>
-            <li><strong>-90%</strong> falhas críticas</li>
-            <li><strong>+70%</strong> velocidade de deploy</li>
-          </ul>
-        </div>
+      <div class="lp">
+        <img src="assets/images/ti.png" alt="" />
       </div>
     </div>
   </section>
 
-  <section class="section" id="problemas">
+  <section class="section bg-azul">
     <div class="container">
-      <h2>Reconhece esses cenários na sua TI?</h2>
+      <div class="">
+          <h3 class="title mb-2">Resultados reais</h3>
+          <ul class="hero-metrics">
+            <li><img src="assets/images/menos.svg" alt="menos" /><strong>-40%</strong> custo<br/> de cloud</li>
+            <li><img src="assets/images/menos.svg" alt="menos" /><strong>-90%</strong> falhas<br/> críticas</li>
+            <li><img src="assets/images/mais.svg" alt="mais" /><strong>+70%</strong> velocidade<br/> de deploy</li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-marinho" id="problemas">
+    <div class="container">
+      <h2 class="title">Reconhece esses cenários na sua TI?</h2>
       <div class="cards-grid">
-        <div class="card">
-          <h3>Sistemas lentos e instáveis</h3>
-          <p>Aplicações caindo em pico de acesso e reclamações constantes das áreas internas.</p>
+        <div class="link-card cenarios">
+          <img src="assets/images/lentidao.svg" alt="lentidao" />
+          <div>
+            <h3>Sistemas lentos e instáveis</h3>
+            <p>Aplicações caindo em pico de acesso e reclamações constantes das áreas internas.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Time apagando incêndio</h3>
-          <p>Ninguém consegue parar para pensar em inovação, só em correção de problemas.</p>
+        <div class="link-card cenarios">
+          <img src="assets/images/extintor.svg" alt="extintor" />
+          <div>
+            <h3>Time apagando incêndio</h3>
+            <p>Ninguém consegue parar para pensar em inovação, só em correção de problemas.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Arquitetura cara e engessada</h3>
-          <p>Custo alto de cloud e medo de qualquer mudança porque “pode quebrar tudo”.</p>
+        <div class="link-card cenarios">
+          <img src="assets/images/arquitetura.svg" alt="arquitetura" />
+          <div>
+            <h3>Arquitetura cara e engessada</h3>
+            <p>Custo alto de cloud e medo de qualquer mudança porque “pode quebrar tudo”.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -63,7 +82,7 @@
 
   <section class="section section-cta" id="diagnostico">
     <div class="container">
-      <div class="cta-card">
+      <div class="cta-card hero">
         <h2>Agende seu diagnóstico gratuito de arquitetura</h2>
         <p>Uma conversa técnica de 30–45 minutos para mapear gargalos, riscos e oportunidades na sua TI.</p>
 
@@ -106,6 +125,10 @@
       </div>
     </div>
   </section>
+
+          <footer>
+          <address class="container">Copyright ©2026 Tarso Tech · Todos os direitos reservados.</address>
+        </footer>
 
   <script>
   (function () {
