@@ -10,14 +10,18 @@
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">TARSO <span>TECNOLOGIA</span></div>
+      <div class="logo"><a href="index.html"><img src="assets/images/logo-tarso.svg" alt="logo-tarso" /></a></div>
       <nav class="nav-links">
-        <a href="index.html">Hub de LPs</a>
+        <a href="index.html">Início</a>
+        <a href="ti.html">Diretor de TI</a>
+        <a href="portal.html">Portal Digital</a>
+        <a href="ecom.html">E-commerce</a>
+        <a href="cfo.html">CFO / Operações</a>
       </nav>
     </div>
   </header>
 
-  <section class="section hero">
+  <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
         <p class="eyebrow">Para CFOs e Heads de Operações</p>
@@ -28,37 +32,52 @@
         </p>
         <a href="#diagnostico-financeiro" class="btn btn-primary">Solicitar diagnóstico de integração financeira</a>
       </div>
-      <div class="hero-media">
-        <div class="hero-card">
-          <h3>Impacto típico em clientes Tarso</h3>
-          <ul class="hero-metrics">
-            <li><strong>-80%</strong> tempo gasto em conciliação manual</li>
-            <li><strong>+100%</strong> visibilidade de fluxo de caixa</li>
-            <li><strong>-X%</strong> erros e retrabalho em fechamento</li>
-          </ul>
-        </div>
+      <div class="lp">
+        <img src="assets/images/cfo.png" alt="" />
       </div>
     </div>
   </section>
 
-  <section class="section" id="problemas">
+      <section class="section bg-azul">
     <div class="container">
-      <h2>Se isso soa familiar, sua operação está carregando custo invisível.</h2>
+      <div class="">
+          <h3 class="title mb-2">Impacto típico em clientes Tarso</h3>
+          <ul class="hero-metrics">
+            <li><img src="assets/images/menos.svg" alt="menos" /><strong>-80%</strong> tempo gasto em<br/> conciliação manual</li>
+            <li><img src="assets/images/mais.svg" alt="mais" /><strong>+100%</strong> visibilidade de<br/> fluxo de caixa</li>
+            <li><img src="assets/images/menos.svg" alt="menos" /><strong>-X%</strong> erros e retrabalho<br/> em fechamento</li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-marinho" id="problemas">
+    <div class="container">
+      <h2 class="title">Se isso soa familiar, sua operação está carregando custo invisível.</h2>
       <p class="section-subtitle">
         Quanto mais a empresa cresce, mais caro fica manter processos financeiros e operacionais desconectados.
       </p>
       <div class="cards-grid">
-        <div class="card">
-          <h3>Conciliação manual e lenta</h3>
-          <p>Time financeiro preso em planilhas para fechar o mês, dia após dia, sempre no limite do prazo.</p>
+        <div class="link-card">
+          <img src="assets/images/lentidao.svg" alt="lentidao" />
+          <div>
+            <h3>Conciliação manual e lenta</h3>
+            <p>Time financeiro preso em planilhas para fechar o mês, dia após dia, sempre no limite do prazo.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Dados inconsistentes entre sistemas</h3>
+        <div class="link-card">
+          <img src="assets/images/inconcistente.svg" alt="inconcistente" />
+          <div>
+            <h3>Dados inconsistentes entre sistemas</h3>
           <p>O que aparece no ERP não bate com o banco, com a adquirente ou com relatórios internos.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Falta de previsibilidade</h3>
-          <p>Sem visão consolidada de recebíveis, custos e indicadores, a tomada de decisão fica no “feeling”.</p>
+        <div class="link-card">
+          <img src="assets/images/previsibilidade.svg" alt="previsibilidade" />
+          <div>
+            <h3>Falta de previsibilidade</h3>
+            <p>Sem visão consolidada de recebíveis, custos e indicadores, a tomada de decisão fica no “feeling”.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -66,7 +85,7 @@
 
   <section class="section section-cta" id="diagnostico-financeiro">
     <div class="container">
-      <div class="cta-card">
+      <div class="cta-card hero">
         <h2>Peça um diagnóstico de integração financeira e operacional</h2>
         <p>
           Em uma conversa estruturada de até 60 minutos, mapeamos os principais gargalos entre operação e financeiro
@@ -119,6 +138,10 @@
       </div>
     </div>
   </section>
+
+  <footer>
+    <address class="container">Copyright ©2026 Tarso Tech · Todos os direitos reservados.</address>
+  </footer>
 
   <script>
   (function () {
