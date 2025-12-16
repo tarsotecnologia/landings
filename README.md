@@ -1,4 +1,4 @@
-# Tarso Landing Multi (Vercel) — Versão com mensagem de sucesso
+# Tarso Landing Multi (Vercel)
 
 Projeto com múltiplas landing pages da Tarso Tecnologia para diferentes ICPs, preparado para deploy na Vercel,
 com formulários integrados ao Manus via POST e mensagem de sucesso amigável (sem tela em branco com JSON).
