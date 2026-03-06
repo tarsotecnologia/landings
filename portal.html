@@ -78,6 +78,7 @@
           <input type="hidden" name="utm_source" id="utm_source" value="" />
           <input type="hidden" name="utm_medium" id="utm_medium" value="" />
           <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+          <input type="hidden" name="icp_id" id="icp_id" value="2" />
 
           <button type="submit" id="submit-btn-portal" class="btn btn-primary btn-block">
             Quero receber o protótipo gratuito
@@ -102,7 +103,7 @@
   (function () {
     const params = new URLSearchParams(window.location.search);
 
-    ["utm_source", "utm_medium", "utm_campaign"].forEach((name) => {
+    ["utm_source", "utm_medium", "utm_campaign","icp_id"].forEach((name) => {
       const el = document.getElementById(name);
       if (el && params.get(name)) {
         el.value = params.get(name);
