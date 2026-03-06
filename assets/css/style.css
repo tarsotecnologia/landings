@@ -251,7 +251,7 @@ h2 {
 }
 
 .cta-card input{
-  /* background: #fff; */
+  background: #fff;
   border: none;
 }
 
@@ -270,7 +270,7 @@ input {
   border-radius: 10px;
   border: 1px solid #4b5563;
   background: rgba(15, 23, 42, 0.9);
-  color: #e5e7eb;
+  /* color: #e5e7eb; */
 }
 
 input::placeholder {
