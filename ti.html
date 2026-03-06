@@ -87,14 +87,14 @@
         <p>Uma conversa técnica de 30–45 minutos para mapear gargalos, riscos e oportunidades na sua TI.</p>
 
         <div id="success-box" class="success-message" style="display:none;">
-          <h3>Mensagem enviada com sucesso! 🎉</h3>
+          <h3>Mensagem enviada com sucesso!</h3>
           <p>Obrigado! Em breve alguém da Tarso entra em contato com você.</p>
         </div>
 
         <form
           id="form-ti"
           class="form"
-          action="https://SEU-ENDPOINT-MANUS-AQUI"
+          action="https://tarso-hub.manus.space/api/lp_captura_leads"
           method="POST"
           target="form_target_ti"
         >
@@ -106,8 +106,8 @@
             <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
           </div>
 
-          <input type="hidden" name="origem" value="LP Diretor de TI - Vercel" />
-          <input type="hidden" name="utm_source" id="utm_source" value="" />
+          <input type="hidden" name="origem" value="LP Diretor de TI" />
+          <input type="hidden" name="utm_source" id="ads_icps" value="" />
           <input type="hidden" name="utm_medium" id="utm_medium" value="" />
           <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
 
@@ -162,7 +162,7 @@
         }
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = "Mensagem enviada! ✅";
+          submitBtn.textContent = "Mensagem enviada!";
         }
         if (form) {
           form.reset();
