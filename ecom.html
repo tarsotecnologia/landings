@@ -93,7 +93,7 @@
             <input type="email" name="email" placeholder="E-mail corporativo" required />
             <input type="text" name="empresa" placeholder="Empresa" required />
             <input type="text" name="cargo" placeholder="Cargo" required />
-            <input type="url" name="url_loja" placeholder="URL da loja / produto digital" required />
+            <input type="text" name="url_loja" placeholder="URL da loja / produto digital" required />
             <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" />
           </div>
 
@@ -149,7 +149,6 @@
       iframe.addEventListener("load", function () {
         if (successBox) {
           successBox.style.display = "block";
-          window.scrollTo({ top: 0, behavior: "smooth" });
         }
         if (submitBtn) {
           submitBtn.disabled = false;
