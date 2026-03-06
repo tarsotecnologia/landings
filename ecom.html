@@ -101,6 +101,7 @@
           <input type="hidden" name="utm_source" id="utm_source" value="" />
           <input type="hidden" name="utm_medium" id="utm_medium" value="" />
           <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+          <input type="hidden" name="icp_id" id="icp_id" value="4" />
 
           <button type="submit" id="submit-btn-ecom" class="btn btn-primary btn-block">
             Quero a análise gratuita
@@ -126,20 +127,307 @@
   <script>
   (function () {
     const params = new URLSearchParams(window.location.search);
-    ["utm_source", "utm_medium", "utm_campaign"].forEach((name) => {
+
+    ["utm_source", "utm_medium", "utm_campaign","icp_id"].forEach((name) => {
       const el = document.getElementById(name);
       if (el && params.get(name)) {
         el.value = params.get(name);
       }
     });
 
-    const form = document.getElementById("form-ecom");
-    const iframe = document.getElementById("form_target_ecom");
-    const successBox = document.getElementById("success-box-ecom");
-    const submitBtn = document.getElementById("submit-btn-ecom");
+    const form = document.getElementById("form-portal");
+    const iframe = document.getElementById("form_target_portal");
+    const successBox = document.getElementById("success-box-portal");
+    const submitBtn = document.getElementById("submit-btn-portal");
+
+    const emailInput = form?.querySelector('input[name="email"]');
+    const empresaInput = form?.querySelector('input[name="empresa"]');
+    const telefoneInput = form?.querySelector('input[name="telefone"]');
+
+    let empresaHubInput = form?.querySelector('input[name="empresa_hub"]');
+    let empresaHint = document.getElementById("empresaHint");
+    let telefoneErro = document.getElementById("telefoneErro");
+
+    const DOMINIOS_GENERICOS = [
+      "gmail.com",
+      "hotmail.com",
+      "outlook.com",
+      "outlook.com.br",
+      "live.com",
+      "live.com.br",
+      "msn.com",
+      "yahoo.com",
+      "yahoo.com.br",
+      "icloud.com",
+      "me.com",
+      "uol.com.br",
+      "bol.com.br",
+      "terra.com.br",
+      "proton.me",
+      "protonmail.com",
+      "aol.com",
+      "ig.com.br",
+      "globo.com"
+    ];
+
+    const EMPRESA_GENERICA_HUB = "Pessoa Física / Email genérico";
+
+    function garantirCampoOcultoEmpresaHub() {
+      if (!form) return null;
+
+      if (!empresaHubInput) {
+        empresaHubInput = document.createElement("input");
+        empresaHubInput.type = "hidden";
+        empresaHubInput.name = "empresa_hub";
+        empresaHubInput.id = "empresa_hub";
+        form.appendChild(empresaHubInput);
+      }
+
+      return empresaHubInput;
+    }
+
+    function garantirAreaDeFeedback() {
+      if (empresaInput && !empresaHint) {
+        empresaHint = document.createElement("small");
+        empresaHint.id = "empresaHint";
+        empresaHint.style.display = "block";
+        empresaHint.style.marginTop = "6px";
+        empresaHint.style.fontSize = "12px";
+        empresaHint.style.color = "#666";
+        empresaInput.insertAdjacentElement("afterend", empresaHint);
+      }
+
+      if (telefoneInput && !telefoneErro) {
+        telefoneErro = document.createElement("small");
+        telefoneErro.id = "telefoneErro";
+        telefoneErro.style.display = "block";
+        telefoneErro.style.marginTop = "6px";
+        telefoneErro.style.fontSize = "12px";
+        telefoneErro.style.color = "#d93025";
+        telefoneInput.insertAdjacentElement("afterend", telefoneErro);
+      }
+    }
+
+    function capitalizarEmpresa(nome) {
+      return nome
+        .replace(/[-_]+/g, " ")
+        .replace(/\b\w/g, (letra) => letra.toUpperCase());
+    }
+
+    function extrairDominio(email) {
+      if (!email || !email.includes("@")) return "";
+      return email.split("@")[1].trim().toLowerCase();
+    }
+
+    function ehDominioGenerico(dominio) {
+      return DOMINIOS_GENERICOS.includes(dominio);
+    }
+
+    function sugerirEmpresaPorEmail(email) {
+      const dominio = extrairDominio(email);
+
+      if (!dominio) return null;
+
+      if (ehDominioGenerico(dominio)) {
+        return {
+          empresaVisual: "",
+          empresaHub: EMPRESA_GENERICA_HUB,
+          generico: true
+        };
+      }
+
+      const partePrincipal = dominio.split(".")[0];
+      const empresaSugerida = capitalizarEmpresa(partePrincipal);
+
+      return {
+        empresaVisual: empresaSugerida,
+        empresaHub: empresaSugerida,
+        generico: false
+      };
+    }
+
+    function aplicarSugestaoEmpresa() {
+      if (!emailInput || !empresaInput) return;
+
+      const hiddenField = garantirCampoOcultoEmpresaHub();
+      const resultado = sugerirEmpresaPorEmail(emailInput.value);
+
+      if (empresaHint) {
+        empresaHint.textContent = "";
+      }
+
+      if (!resultado) {
+        if (hiddenField) hiddenField.value = "";
+        return;
+      }
+
+      if (resultado.generico) {
+        if (hiddenField) hiddenField.value = resultado.empresaHub;
+
+        if (!empresaInput.value.trim() && empresaHint) {
+          empresaHint.textContent =
+            "Use um e-mail corporativo para sugerirmos a empresa automaticamente.";
+        }
+        return;
+      }
+
+      if (hiddenField) hiddenField.value = resultado.empresaHub;
+
+      if (!empresaInput.dataset.editadoManualmente) {
+        empresaInput.value = resultado.empresaVisual;
+
+        if (empresaHint) {
+          empresaHint.textContent =
+            "Empresa sugerida automaticamente com base no domínio do e-mail.";
+        }
+      }
+    }
+
+    function mascaraTelefoneBrasil(valor) {
+      let numeros = valor.replace(/\D/g, "").slice(0, 11);
+
+      if (numeros.length > 10) {
+        return numeros.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+      }
+
+      if (numeros.length > 6) {
+        return numeros.replace(/^(\d{2})(\d{4})(\d+)$/, "($1) $2-$3");
+      }
+
+      if (numeros.length > 2) {
+        return numeros.replace(/^(\d{2})(\d+)/, "($1) $2");
+      }
+
+      if (numeros.length > 0) {
+        return numeros.replace(/^(\d+)/, "($1");
+      }
+
+      return "";
+    }
+
+    function validarWhatsApp(numeroFormatado) {
+      const numero = numeroFormatado.replace(/\D/g, "");
+
+      if (numero.length < 10 || numero.length > 11) {
+        return {
+          valido: false,
+          mensagem: "Informe um número com DDD válido."
+        };
+      }
+
+      const ddd = numero.substring(0, 2);
+      const numeroLocal = numero.substring(2);
+
+      if (parseInt(ddd, 10) < 11 || parseInt(ddd, 10) > 99) {
+        return {
+          valido: false,
+          mensagem: "DDD inválido."
+        };
+      }
+
+      if (/^(\d)\1+$/.test(numero)) {
+        return {
+          valido: false,
+          mensagem: "Número inválido."
+        };
+      }
+
+      if (numero.length === 11 && numeroLocal[0] !== "9") {
+        return {
+          valido: false,
+          mensagem: "Celular com 11 dígitos deve começar com 9."
+        };
+      }
+
+      return {
+        valido: true,
+        mensagem: ""
+      };
+    }
+
+    function configurarEventos() {
+      garantirCampoOcultoEmpresaHub();
+      garantirAreaDeFeedback();
+
+      if (emailInput) {
+        emailInput.addEventListener("input", aplicarSugestaoEmpresa);
+        emailInput.addEventListener("blur", aplicarSugestaoEmpresa);
+      }
+
+      if (empresaInput) {
+        empresaInput.addEventListener("input", function () {
+          const valor = empresaInput.value.trim();
+
+          empresaInput.dataset.editadoManualmente = valor ? "true" : "";
+
+          if (empresaHubInput && valor) {
+            empresaHubInput.value = valor;
+          }
+        });
+      }
+
+      if (telefoneInput) {
+        telefoneInput.addEventListener("input", function (e) {
+          e.target.value = mascaraTelefoneBrasil(e.target.value);
+
+          const resultado = validarWhatsApp(e.target.value);
+
+          if (!e.target.value.trim()) {
+            if (telefoneErro) telefoneErro.textContent = "";
+            telefoneInput.setCustomValidity("");
+            return;
+          }
+
+          if (!resultado.valido) {
+            if (telefoneErro) telefoneErro.textContent = resultado.mensagem;
+            telefoneInput.setCustomValidity(resultado.mensagem);
+          } else {
+            if (telefoneErro) telefoneErro.textContent = "";
+            telefoneInput.setCustomValidity("");
+          }
+        });
+
+        telefoneInput.addEventListener("blur", function () {
+          const resultado = validarWhatsApp(telefoneInput.value);
+
+          if (!resultado.valido && telefoneInput.value.trim()) {
+            if (telefoneErro) telefoneErro.textContent = resultado.mensagem;
+            telefoneInput.setCustomValidity(resultado.mensagem);
+            telefoneInput.reportValidity();
+          }
+        });
+      }
+    }
 
     if (form && iframe) {
-      form.addEventListener("submit", function () {
+      configurarEventos();
+
+      form.addEventListener("submit", function (e) {
+        aplicarSugestaoEmpresa();
+
+        if (telefoneInput) {
+          const telefoneValido = validarWhatsApp(telefoneInput.value);
+
+          if (!telefoneValido.valido) {
+            e.preventDefault();
+            if (telefoneErro) telefoneErro.textContent = telefoneValido.mensagem;
+            telefoneInput.setCustomValidity(telefoneValido.mensagem);
+            telefoneInput.reportValidity();
+            return;
+          }
+
+          telefoneInput.setCustomValidity("");
+        }
+
+        if (
+          empresaInput &&
+          empresaHubInput &&
+          !empresaInput.value.trim() &&
+          empresaHubInput.value === EMPRESA_GENERICA_HUB
+        ) {
+          empresaInput.value = "Não informado";
+        }
+
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = "Enviando...";
@@ -150,12 +438,30 @@
         if (successBox) {
           successBox.style.display = "block";
         }
+
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = "Mensagem enviada! ✅";
+          submitBtn.textContent = "Mensagem enviada!";
         }
+
         if (form) {
           form.reset();
+        }
+
+        if (empresaInput) {
+          delete empresaInput.dataset.editadoManualmente;
+        }
+
+        if (empresaHubInput) {
+          empresaHubInput.value = "";
+        }
+
+        if (empresaHint) {
+          empresaHint.textContent = "";
+        }
+
+        if (telefoneErro) {
+          telefoneErro.textContent = "";
         }
       });
     }
