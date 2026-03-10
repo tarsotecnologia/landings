@@ -391,3 +391,11 @@ li strong{
     width: 100%;
   }
 }
+
+.calendly-badge-widget .calendly-badge-content > span {
+    display: none !important;
+}
+
+.calendly-badge-content {
+    padding-bottom: 12px;
+}
