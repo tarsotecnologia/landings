@@ -24,6 +24,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "ecom2.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "assets/**/*",
       "use": "@vercel/static"
     }
