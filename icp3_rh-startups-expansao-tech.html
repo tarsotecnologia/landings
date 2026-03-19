@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diagnóstico de Hiring Tech para RH em Startups e Empresas de Tecnologia | Tarso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Avaliação estratégica para líderes de RH e People que precisam acelerar contratações técnicas com mais assertividade." />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <style>
+:root{
+  --bg:#07121f;
+  --bg-soft:#0b1a2c;
+  --panel:#10253b;
+  --panel-2:#0d2237;
+  --text:#f3f7fb;
+  --muted:#b7c8d9;
+  --line:rgba(255,255,255,.08);
+  --primary:#12c7c3;
+  --primary-dark:#0da7a3;
+  --secondary:#1a3552;
+  --secondary-border:#26486b;
+  --success:#19d28f;
+  --shadow:0 20px 60px rgba(0,0,0,.25);
+  --radius:22px;
+  --radius-sm:16px;
+  --container:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:linear-gradient(180deg,var(--bg) 0%, #081829 100%);
+  color:var(--text);
+  line-height:1.55;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(var(--container), calc(100% - 40px));margin:0 auto}
+.hero{
+  padding:28px 0 78px;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(18,199,195,.18), transparent 28%),
+    radial-gradient(circle at 85% 0%, rgba(18,199,195,.12), transparent 30%),
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+}
+.topbar{
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  padding:10px 0 40px;
+}
+.brand{
+  display:flex;align-items:center;gap:14px;font-weight:700;font-size:1.1rem;
+}
+.brand-mark{
+  width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg, var(--primary), #77f2ef);
+  display:grid;place-items:center;color:#06212c;font-weight:900;box-shadow:var(--shadow)
+}
+.topbar-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:stretch}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 14px;border:1px solid rgba(18,199,195,.22);
+  border-radius:999px;background:rgba(18,199,195,.08);color:#90f1ee;
+  font-size:.88rem;font-weight:700;letter-spacing:.02em;text-transform:none;
+}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+h1{font-size:clamp(2.2rem, 4vw, 4rem);line-height:1.05;letter-spacing:-.03em;margin:18px 0 18px}
+.hero-subtitle{font-size:1.1rem;color:var(--muted);max-width:62ch}
+.btn-row,.topbar-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 22px;border-radius:14px;font-weight:700;
+  transition:.2s ease; border:1px solid transparent;
+}
+.btn-primary{background:var(--primary);color:#04202b;box-shadow:0 10px 25px rgba(18,199,195,.25)}
+.btn-primary:hover{transform:translateY(-1px);background:#22d8d4}
+.btn-secondary{background:rgba(255,255,255,.03);color:var(--text);border-color:var(--secondary-border)}
+.btn-secondary:hover{transform:translateY(-1px);background:rgba(255,255,255,.06)}
+.hero-points, .panel-list, .check-list{list-style:none;padding:0;margin:24px 0 0}
+.hero-points li,.panel-list li{
+  display:flex;align-items:flex-start;gap:12px;color:var(--muted);margin-bottom:12px
+}
+.hero-points li::before,.panel-list li::before{
+  content:"✓";display:inline-grid;place-items:center;flex:0 0 24px;
+  width:24px;height:24px;border-radius:999px;background:rgba(25,210,143,.14);color:#8df0c3;font-weight:800
+}
+.hero-note,.micro-note,.field-note,.error-note{font-size:.9rem;color:#8ea5bf}
+.error-note{color:#ff9f9f}
+.glass-card,.content-box,.form-card,.info-card,.stat-card,.card,.step,.cta-band{
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+  border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+  backdrop-filter: blur(14px);
+}
+.hero-panel{height:100%;padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:26px}
+.metric{padding:18px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.05)}
+.metric strong{display:block;font-size:1.6rem;letter-spacing:-.03em;margin-bottom:6px}
+.metric span{display:block;color:var(--muted);font-size:.94rem}
+.panel-title{font-size:1.7rem;line-height:1.15;margin:0 0 12px}
+.panel-text{color:var(--muted)}
+.section{padding:74px 0}
+.section-sm{padding:34px 0}
+.stats-band,.cards-grid,.split-grid,.form-section{display:grid;gap:20px}
+.stats-band{grid-template-columns:repeat(3,1fr)}
+.stat-card,.card,.step,.content-box,.form-card,.info-card{padding:26px}
+.stat-card strong{display:block;font-size:1.05rem;margin-bottom:10px}
+.stat-card p,.card p,.step p,.content-box p,.form-card p,.info-card p{margin:0;color:var(--muted)}
+.section-head{max-width:780px;margin:0 auto 28px;text-align:center}
+.section-head h2{font-size:clamp(1.8rem, 3vw, 2.8rem);line-height:1.1;letter-spacing:-.03em;margin:14px 0}
+.cards-grid{grid-template-columns:repeat(3,1fr)}
+.card-icon,.step-num{
+  width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(18,199,195,.11);color:var(--primary);font-weight:800;margin-bottom:16px;border:1px solid rgba(18,199,195,.2)
+}
+.card h3,.step h4,.content-box h3,.form-card h3,.info-card h3{margin:0 0 10px;line-height:1.16}
+.split-grid,.form-section{grid-template-columns:repeat(2,1fr)}
+.check-list li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.check-list li:last-child{border-bottom:0}
+.check{
+  width:28px;height:28px;border-radius:999px;display:grid;place-items:center;
+  background:rgba(18,199,195,.12);color:var(--primary);font-weight:800;flex:0 0 28px
+}
+.check-list strong{display:block;margin-bottom:3px}
+.check-list span:last-child{color:var(--muted)}
+.cta-band{text-align:center;padding:34px}
+.cta-band h3{font-size:clamp(1.4rem, 2.3vw, 2.2rem);line-height:1.12;margin:0 0 12px}
+.input,.select,textarea{
+  width:100%;background:#0a1a2c;border:1px solid rgba(255,255,255,.08);color:var(--text);
+  border-radius:14px;min-height:52px;padding:14px 16px;font:inherit;outline:none
+}
+textarea{min-height:136px;resize:vertical}
+.input:focus,.select:focus,textarea:focus{border-color:rgba(18,199,195,.5);box-shadow:0 0 0 4px rgba(18,199,195,.12)}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.full{grid-column:1/-1}
+.success-message{
+  padding:18px;border-radius:18px;background:rgba(25,210,143,.1);
+  border:1px solid rgba(25,210,143,.24);margin-bottom:16px
+}
+.success-message h4{margin:0 0 6px}
+.faq{display:grid;gap:14px;max-width:900px;margin:0 auto}
+.faq details{
+  border:1px solid var(--line);border-radius:18px;padding:18px 22px;background:rgba(255,255,255,.03)
+}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{margin:12px 0 0;color:var(--muted)}
+footer{padding:26px 0 42px;color:#9bb3ca}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
+@media (max-width: 960px){
+  .hero-grid,.split-grid,.form-section,.cards-grid,.stats-band,.metrics,.form-grid{grid-template-columns:1fr}
+  .topbar{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="topbar">
+        <a href="#" class="brand" aria-label="Tarso">
+          <span class="brand-mark">T</span>
+          <span>Tarso Tecnologia</span>
+        </a>
+
+        <div class="topbar-actions">
+          <a href="#formulario" class="btn btn-secondary">Solicitar avaliação</a>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Diagnóstico de hiring tech | Tarso</span>
+
+          <h1>Seu processo de recrutamento técnico acompanha a velocidade de crescimento da empresa?</h1>
+
+          <p class="hero-subtitle">A Tarso analisa briefing, triagem, alinhamento com lideranças e funil de contratação para identificar gargalos que atrasam vagas críticas e desgastam gestores.</p>
+
+          <div class="btn-row">
+            <a href="#formulario" class="btn btn-secondary">
+              Receber avaliação preliminar
+            </a>
+          </div>
+
+          <ul class="hero-points">
+            <li>Reunião executiva de 15 minutos</li>
+            <li>Diagnóstico inicial sem custo</li>
+            <li>Foco em velocidade, assertividade e qualidade de shortlist</li>
+            <li>Indicado para startups e empresas tech em expansão</li>
+          </ul>
+
+          <p class="hero-note">
+            Diagnóstico inicial realizado mediante avaliação de aderência ao perfil da empresa.
+          </p>
+        </div>
+
+        <div class="hero-side">
+          <div class="glass-card hero-panel">
+            <div>
+              <div class="metrics">
+                <div class="metric">
+                  <strong>+27%</strong>
+                  <span>potencial típico de ganho percebido em eficiência do funil</span>
+                </div>
+                <div class="metric">
+                  <strong>15 min</strong>
+                  <span>para mapear desafios de hiring técnico</span>
+                </div>
+                <div class="metric">
+                  <strong>90 dias</strong>
+                  <span>para estruturar melhorias no processo de recrutamento</span>
+                </div>
+              </div>
+
+              <h2 class="panel-title">O que a liderança de RH ganha com o diagnóstico</h2>
+
+              <p class="panel-text">Uma visão executiva dos gargalos do processo seletivo, dos pontos de desalinhamento com gestores e das prioridades para contratar com mais critério e velocidade.</p>
+            </div>
+
+            <ul class="panel-list">
+              <li>Mapa dos gargalos entre briefing, sourcing, triagem e validação técnica</li>
+              <li>Leitura das fricções que aumentam tempo de fechamento e reduzem aderência</li>
+              <li>Recomendações objetivas para melhorar comunicação, processo e qualidade de shortlist</li>
+              <li>Próximos passos realistas para evoluir o hiring em até 90 dias</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section section-sm">
+    <div class="container">
+      <div class="stats-band">
+        <div class="stat-card">
+          <strong>Velocidade</strong>
+          <p>Vaga crítica aberta por tempo demais vira custo invisível, pressão interna e atraso de entrega.</p>
+        </div>
+        <div class="stat-card">
+          <strong>Qualidade</strong>
+          <p>Triagem desalinhada faz gestor entrevistar demais e contratar de menos.</p>
+        </div>
+        <div class="stat-card">
+          <strong>Experiência</strong>
+          <p>Processos confusos afastam bons candidatos e desgastam a marca empregadora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contexto">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Contexto executivo</span>
+        <h2>Quando a empresa acelera, o processo de hiring precisa deixar de ser gargalo</h2>
+        <p>Sem alinhamento claro entre RH, liderança técnica e negócio, a contratação de talentos de TI vira lenta, cara e inconsistente.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-icon">01</div>
+          <h3>Escassez de talentos</h3>
+          <p>Perfis seniores e nichados exigem leitura de mercado, posicionamento e processo bem calibrado.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">02</div>
+          <h3>Triagem pouco assertiva</h3>
+          <p>Shortlists desalinhadas consomem tempo de gestores e alongam o ciclo de contratação.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">03</div>
+          <h3>Pressão por resultado</h3>
+          <p>A empresa quer contratar rápido, com aderência cultural, técnica e financeira. Fácil, né? Só que não.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="avaliacao">
+    <div class="container">
+      <div class="split-grid">
+        <div class="content-box">
+          <span class="eyebrow">O que a Tarso avalia</span>
+          <h3>Uma análise estruturada do funil, dos critérios e da operação de recrutamento</h3>
+          <p>O diagnóstico conecta processo, comunicação e contexto de negócio para mostrar onde o hiring perde eficiência e como ganhar tração sem sacrificar qualidade.</p>
+
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Briefing e alinhamento</strong>
+                <span>Como vagas são definidas, priorizadas e traduzidas para o mercado.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Triagem e shortlist</strong>
+                <span>Critérios de aderência, qualidade do filtro e fricção com gestores.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Experiência do candidato</strong>
+                <span>Pontos que influenciam resposta, engajamento e percepção da marca.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Indicadores do funil</strong>
+                <span>Onde estão os atrasos, perdas de conversão e oportunidades de ajuste.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="content-box">
+          <span class="eyebrow">Entregáveis</span>
+          <h3>O que sua equipe recebe ao final da avaliação</h3>
+          <p>A devolutiva foca em ganho operacional, clareza de processo e decisões mais inteligentes para vagas técnicas.</p>
+
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Visão executiva do cenário atual</strong>
+                <span>Resumo da maturidade do processo de contratação técnica.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Principais gargalos identificados</strong>
+                <span>Pontos que afetam velocidade, qualidade e aderência dos candidatos.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Oportunidades priorizadas</strong>
+                <span>Ajustes com maior potencial de impacto no curto prazo.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Próximos passos sugeridos</strong>
+                <span>Orientação inicial para evolução do processo em até 90 dias.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="processo">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Um processo simples, executivo e objetivo</h2>
+        <p>O diagnóstico foi desenhado para gerar clareza sem aumentar a carga da sua equipe.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Conversa inicial</h4>
+            <p>Reunião de 15 minutos para entender contexto, desafios, prioridades e sinais de maturidade.</p>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Análise executiva</h4>
+            <p>Avaliação dos principais pontos de processo, governança, integração e eficiência relacionados ao cenário atual.</p>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Devolutiva estruturada</h4>
+            <p>Apresentação das oportunidades identificadas, riscos percebidos e próximos passos recomendados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h3>Descubra onde seu hiring pode ganhar velocidade, critério e menos retrabalho</h3>
+        <p>Uma conversa executiva com a Tarso ajuda sua equipe a enxergar o que hoje trava vagas críticas, consome tempo de gestores e reduz a qualidade da shortlist.</p>
+
+        <div class="btn-row" style="justify-content:center; margin-bottom: 0;">
+          <a href="#formulario" class="btn btn-secondary">
+            Solicitar avaliação
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="formulario">
+    <div class="container">
+      <div class="form-section">
+        <div class="info-card">
+          <span class="eyebrow">Para quem é</span>
+          <h3>Empresas tech que precisam contratar com mais velocidade e aderência</h3>
+          <p>Este diagnóstico faz mais sentido para organizações em expansão, com volume crescente de vagas técnicas ou dificuldade em preencher perfis estratégicos.</p>
+
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Crescimento ou expansão do time</strong>
+                <span>Startups e empresas de tecnologia em ritmo acelerado de contratação.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Liderança de RH ou People ativa</strong>
+                <span>Gerente, head, diretoria de RH ou liderança equivalente.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Vagas técnicas críticas</strong>
+                <span>Cloud, dados, segurança, desenvolvimento, produto ou liderança técnica.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Pressão por eficiência no funil</strong>
+                <span>Quando tempo de fechamento e qualidade de shortlist viraram problema recorrente.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <span class="eyebrow">Solicitar avaliação</span>
+          <h3>Fale com a Tarso</h3>
+          <p>Preencha os dados abaixo para solicitar uma avaliação preliminar do seu cenário.</p>
+
+          <div id="success-box-3" class="success-message" style="display:none;">
+            <h4>Mensagem enviada com sucesso</h4>
+            <p>Recebemos sua solicitação. Em breve a equipe da Tarso entra em contato com os próximos passos.</p>
+          </div>
+
+          <form
+            id="form-3"
+            action="https://hub.tarso.tech/api/lp_captura_leads"
+            method="POST"
+            target="form_target_3"
+          >
+            <div class="form-grid">
+              <div>
+                <input class="input" type="text" name="nome" placeholder="Seu nome" required />
+              </div>
+
+              <div>
+                <input class="input" type="email" name="email" placeholder="E-mail corporativo" required />
+              </div>
+
+              <div>
+                <input class="input" type="text" name="empresa" placeholder="Empresa" required />
+                <small id="empresaHint-3" class="field-note"></small>
+              </div>
+
+              <div>
+                <input class="input" type="text" name="cargo" placeholder="Cargo" />
+              </div>
+
+              <div>
+                <input class="input" type="tel" name="telefone" placeholder="Telefone / WhatsApp" />
+                <small id="telefoneErro-3" class="error-note"></small>
+              </div>
+
+              <div>
+                <select class="select" name="faixa_faturamento">
+                  <option value="">Faixa de faturamento</option>
+                  <option value="ate_10m">Até R$ 10M</option>
+                  <option value="10m_50m">R$ 10M a R$ 50M</option>
+                  <option value="50m_200m">R$ 50M a R$ 200M</option>
+                  <option value="acima_200m">Acima de R$ 200M</option>
+                </select>
+              </div>
+
+              <div class="full">
+                <textarea
+                  name="desafio"
+                  placeholder="Qual é hoje o principal desafio em contratação técnica, velocidade do funil ou alinhamento com gestores?"
+                ></textarea>
+              </div>
+            </div>
+
+            <input type="hidden" name="origem" value="LP RH Hiring Tech - ICP 3" />
+            <input type="hidden" name="utm_source" id="utm_source" value="Ads" />
+            <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+            <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+            <input type="hidden" name="icp_id" id="icp_id" value="3" />
+
+            <div style="margin-top:18px;">
+              <button type="submit" id="submit-btn-3" class="btn btn-primary" style="width:100%;">
+                Solicitar avaliação
+              </button>
+            </div>
+
+            <p class="form-footnote micro-note" style="margin: 12px 0 0;">
+              A avaliação inicial está sujeita à aderência do perfil e à disponibilidade da agenda da Tarso.
+            </p>
+          </form>
+
+          <iframe
+            name="form_target_3"
+            id="form_target_3"
+            style="width:0;height:0;border:0;visibility:hidden;"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2>O que sua equipe pode esperar</h2>
+        <p>Sem fumaça, sem PowerPoint performático, sem buzzword solta em liberdade.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>O diagnóstico tem custo?</summary>
+          <p>Não. A etapa inicial é gratuita e ajuda a avaliar aderência, contexto e oportunidades de melhoria.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva a conversa inicial?</summary>
+          <p>Em geral, 15 minutos. O suficiente para ser útil sem roubar o dia inteiro do time.</p>
+        </details>
+        <details>
+          <summary>Quem deve participar?</summary>
+          <p>O ideal é envolver liderança de RH/People e, quando aplicável, um gestor técnico chave.</p>
+        </details>
+        <details>
+          <summary>A avaliação é sobre recrutamento ou sobre operação?</summary>
+          <p>Os dois. A proposta é entender como o processo de hiring funciona na prática e onde ele está perdendo velocidade, qualidade ou energia.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-row">
+      <span>Copyright ©2026 Tarso · Todos os direitos reservados.</span>
+      <span>Diagnóstico executivo para operações mais previsíveis, eficientes e escaláveis.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+
+      ["utm_source", "utm_medium", "utm_campaign", "icp_id"].forEach((name) => {
+        const el = document.getElementById(name);
+        if (el && params.get(name)) {
+          el.value = params.get(name);
+        }
+      });
+
+      const form = document.getElementById("form-3");
+      const iframe = document.getElementById("form_target_3");
+      const successBox = document.getElementById("success-box-3");
+      const submitBtn = document.getElementById("submit-btn-3");
+
+      const emailInput = form?.querySelector('input[name="email"]');
+      const empresaInput = form?.querySelector('input[name="empresa"]');
+      const telefoneInput = form?.querySelector('input[name="telefone"]');
+
+      let empresaHubInput = form?.querySelector('input[name="empresa_hub"]');
+      let empresaHint = document.getElementById("empresaHint-3");
+      let telefoneErro = document.getElementById("telefoneErro-3");
+
+      const DOMINIOS_GENERICOS = [
+        "gmail.com","hotmail.com","outlook.com","outlook.com.br","live.com","live.com.br","msn.com",
+        "yahoo.com","yahoo.com.br","icloud.com","me.com","uol.com.br","bol.com.br","terra.com.br",
+        "proton.me","protonmail.com","aol.com","ig.com.br","globo.com"
+      ];
+
+      const EMPRESA_GENERICA_HUB = "Pessoa Física / Email genérico";
+
+      function garantirCampoOcultoEmpresaHub() {
+        if (!form) return null;
+        if (!empresaHubInput) {
+          empresaHubInput = document.createElement("input");
+          empresaHubInput.type = "hidden";
+          empresaHubInput.name = "empresa_hub";
+          empresaHubInput.id = "empresa_hub";
+          form.appendChild(empresaHubInput);
+        }
+        return empresaHubInput;
+      }
+
+      function extrairEmpresaDoEmail(email) {
+        const valor = (email || "").trim().toLowerCase();
+        if (!valor || !valor.includes("@")) return "";
+        const dominio = valor.split("@")[1];
+        if (!dominio || DOMINIOS_GENERICOS.includes(dominio)) return "";
+        const partes = dominio.split(".");
+        if (!partes.length) return "";
+        const base = partes[0].replace(/[^a-z0-9-]/gi, " ").replace(/[-_]+/g, " ").trim();
+        if (!base) return "";
+        return base.split(" ").map((parte) => parte.charAt(0).toUpperCase() + parte.slice(1)).join(" ");
+      }
+
+      function aplicarSugestaoEmpresa() {
+        if (!emailInput || !empresaInput) return;
+        const hidden = garantirCampoOcultoEmpresaHub();
+        const empresaSugerida = extrairEmpresaDoEmail(emailInput.value);
+        const campoEditadoManualmente = empresaInput.dataset.editadoManualmente === "true";
+
+        if (empresaSugerida) {
+          if (!campoEditadoManualmente && !empresaInput.value.trim()) {
+            empresaInput.value = empresaSugerida;
+          }
+          if (hidden) hidden.value = empresaInput.value.trim() || empresaSugerida;
+          if (empresaHint) {
+            empresaHint.textContent = "Sugestão automática baseada no domínio do e-mail corporativo.";
+          }
+        } else {
+          if (hidden) hidden.value = EMPRESA_GENERICA_HUB;
+          if (empresaHint) {
+            empresaHint.textContent = "Para e-mails genéricos, a empresa pode ser revisada no atendimento.";
+          }
+        }
+      }
+
+      function somenteDigitos(valor) {
+        return (valor || "").replace(/\D/g, "");
+      }
+
+      function mascaraTelefoneBrasil(valor) {
+        const digitos = somenteDigitos(valor).slice(0, 11);
+        if (digitos.length <= 2) return digitos;
+        if (digitos.length <= 6) return `(${digitos.slice(0, 2)}) ${digitos.slice(2)}`;
+        if (digitos.length <= 10) {
+          return `(${digitos.slice(0, 2)}) ${digitos.slice(2, 6)}-${digitos.slice(6)}`;
+        }
+        return `(${digitos.slice(0, 2)}) ${digitos.slice(2, 7)}-${digitos.slice(7)}`;
+      }
+
+      function validarWhatsApp(valor) {
+        const digitos = somenteDigitos(valor);
+        if (!digitos.length) {
+          return { valido: true, mensagem: "" };
+        }
+        if (digitos.length < 10 || digitos.length > 11) {
+          return { valido: false, mensagem: "Digite um telefone com DDD válido." };
+        }
+        if (digitos.length === 11 && digitos[2] !== "9") {
+          return { valido: false, mensagem: "Para celular/WhatsApp, inclua o 9 após o DDD." };
+        }
+        return { valido: true, mensagem: "" };
+      }
+
+      function configurarEventos() {
+        garantirCampoOcultoEmpresaHub();
+        if (emailInput) {
+          emailInput.addEventListener("input", aplicarSugestaoEmpresa);
+          emailInput.addEventListener("blur", aplicarSugestaoEmpresa);
+        }
+        if (empresaInput) {
+          empresaInput.addEventListener("input", function () {
+            const valor = empresaInput.value.trim();
+            empresaInput.dataset.editadoManualmente = valor ? "true" : "";
+            if (empresaHubInput && valor) {
+              empresaHubInput.value = valor;
+            }
+          });
+        }
+        if (telefoneInput) {
+          telefoneInput.addEventListener("input", function (e) {
+            e.target.value = mascaraTelefoneBrasil(e.target.value);
+            const resultado = validarWhatsApp(e.target.value);
+            if (!e.target.value.trim()) {
+              if (telefoneErro) telefoneErro.textContent = "";
+              telefoneInput.setCustomValidity("");
+              return;
+            }
+            if (!resultado.valido) {
+              if (telefoneErro) telefoneErro.textContent = resultado.mensagem;
+              telefoneInput.setCustomValidity(resultado.mensagem);
+            } else {
+              if (telefoneErro) telefoneErro.textContent = "";
+              telefoneInput.setCustomValidity("");
+            }
+          });
+          telefoneInput.addEventListener("blur", function () {
+            const resultado = validarWhatsApp(telefoneInput.value);
+            if (!resultado.valido && telefoneInput.value.trim()) {
+              if (telefoneErro) telefoneErro.textContent = resultado.mensagem;
+              telefoneInput.setCustomValidity(resultado.mensagem);
+              telefoneInput.reportValidity();
+            }
+          });
+        }
+      }
+
+      if (form && iframe) {
+        configurarEventos();
+        form.addEventListener("submit", function (e) {
+          aplicarSugestaoEmpresa();
+          if (telefoneInput) {
+            const telefoneValido = validarWhatsApp(telefoneInput.value);
+            if (!telefoneValido.valido) {
+              e.preventDefault();
+              if (telefoneErro) telefoneErro.textContent = telefoneValido.mensagem;
+              telefoneInput.setCustomValidity(telefoneValido.mensagem);
+              telefoneInput.reportValidity();
+              return;
+            }
+            telefoneInput.setCustomValidity("");
+          }
+          if (empresaInput && empresaHubInput && !empresaInput.value.trim() && empresaHubInput.value === EMPRESA_GENERICA_HUB) {
+            empresaInput.value = "Não informado";
+          }
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Enviando...";
+          }
+        });
+
+        iframe.addEventListener("load", function () {
+          if (successBox) successBox.style.display = "block";
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Mensagem enviada!";
+          }
+          if (form) form.reset();
+          if (empresaInput) delete empresaInput.dataset.editadoManualmente;
+          if (empresaHubInput) empresaHubInput.value = "";
+          if (empresaHint) empresaHint.textContent = "";
+          if (telefoneErro) telefoneErro.textContent = "";
+        });
+      }
+    })();
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17893513347"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "AW-17893513347");
+  </script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      Calendly.initBadgeWidget({
+        url: "https://calendly.com/tarso-calendly/agenda-tarso-15min",
+        text: "Agenda rápida de 15 min",
+        color: "#12c7c3",
+        textColor: "#ffffff",
+        branding: true
+      });
+    };
+  </script>
+</body>
+</html>

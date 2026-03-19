@@ -28,6 +28,22 @@
       "use": "@vercel/static"
     },
     {
+      "src": "icp_6gerente-ti-empresas-engenharia.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "icp1_diretor-ti-medias-grandes-empresas.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "icp2_ceo-coo-portal-digital-servicos.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "icp3_rh-startups-expansao-tech.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "assets/**/*",
       "use": "@vercel/static"
     }

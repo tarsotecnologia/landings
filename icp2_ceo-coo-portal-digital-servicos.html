@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diagnóstico de Portal Digital para CEOs e COOs | Tarso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Avaliação estratégica para líderes de empresas de serviços que precisam de um portal digital para escalar atendimento e operação." />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <style>
+:root{
+  --bg:#07121f;
+  --bg-soft:#0b1a2c;
+  --panel:#10253b;
+  --panel-2:#0d2237;
+  --text:#f3f7fb;
+  --muted:#b7c8d9;
+  --line:rgba(255,255,255,.08);
+  --primary:#12c7c3;
+  --primary-dark:#0da7a3;
+  --secondary:#1a3552;
+  --secondary-border:#26486b;
+  --success:#19d28f;
+  --shadow:0 20px 60px rgba(0,0,0,.25);
+  --radius:22px;
+  --radius-sm:16px;
+  --container:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:linear-gradient(180deg,var(--bg) 0%, #081829 100%);
+  color:var(--text);
+  line-height:1.55;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(var(--container), calc(100% - 40px));margin:0 auto}
+.hero{
+  padding:28px 0 78px;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(18,199,195,.18), transparent 28%),
+    radial-gradient(circle at 85% 0%, rgba(18,199,195,.12), transparent 30%),
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+}
+.topbar{
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  padding:10px 0 40px;
+}
+.brand{
+  display:flex;align-items:center;gap:14px;font-weight:700;font-size:1.1rem;
+}
+.brand-mark{
+  width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg, var(--primary), #77f2ef);
+  display:grid;place-items:center;color:#06212c;font-weight:900;box-shadow:var(--shadow)
+}
+.topbar-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:stretch}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 14px;border:1px solid rgba(18,199,195,.22);
+  border-radius:999px;background:rgba(18,199,195,.08);color:#90f1ee;
+  font-size:.88rem;font-weight:700;letter-spacing:.02em;text-transform:none;
+}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+h1{font-size:clamp(2.2rem, 4vw, 4rem);line-height:1.05;letter-spacing:-.03em;margin:18px 0 18px}
+.hero-subtitle{font-size:1.1rem;color:var(--muted);max-width:62ch}
+.btn-row,.topbar-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 22px;border-radius:14px;font-weight:700;
+  transition:.2s ease; border:1px solid transparent;
+}
+.btn-primary{background:var(--primary);color:#04202b;box-shadow:0 10px 25px rgba(18,199,195,.25)}
+.btn-primary:hover{transform:translateY(-1px);background:#22d8d4}
+.btn-secondary{background:rgba(255,255,255,.03);color:var(--text);border-color:var(--secondary-border)}
+.btn-secondary:hover{transform:translateY(-1px);background:rgba(255,255,255,.06)}
+.hero-points, .panel-list, .check-list{list-style:none;padding:0;margin:24px 0 0}
+.hero-points li,.panel-list li{
+  display:flex;align-items:flex-start;gap:12px;color:var(--muted);margin-bottom:12px
+}
+.hero-points li::before,.panel-list li::before{
+  content:"✓";display:inline-grid;place-items:center;flex:0 0 24px;
+  width:24px;height:24px;border-radius:999px;background:rgba(25,210,143,.14);color:#8df0c3;font-weight:800
+}
+.hero-note,.micro-note,.field-note,.error-note{font-size:.9rem;color:#8ea5bf}
+.error-note{color:#ff9f9f}
+.glass-card,.content-box,.form-card,.info-card,.stat-card,.card,.step,.cta-band{
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+  border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+  backdrop-filter: blur(14px);
+}
+.hero-panel{height:100%;padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:26px}
+.metric{padding:18px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.05)}
+.metric strong{display:block;font-size:1.6rem;letter-spacing:-.03em;margin-bottom:6px}
+.metric span{display:block;color:var(--muted);font-size:.94rem}
+.panel-title{font-size:1.7rem;line-height:1.15;margin:0 0 12px}
+.panel-text{color:var(--muted)}
+.section{padding:74px 0}
+.section-sm{padding:34px 0}
+.stats-band,.cards-grid,.split-grid,.form-section{display:grid;gap:20px}
+.stats-band{grid-template-columns:repeat(3,1fr)}
+.stat-card,.card,.step,.content-box,.form-card,.info-card{padding:26px}
+.stat-card strong{display:block;font-size:1.05rem;margin-bottom:10px}
+.stat-card p,.card p,.step p,.content-box p,.form-card p,.info-card p{margin:0;color:var(--muted)}
+.section-head{max-width:780px;margin:0 auto 28px;text-align:center}
+.section-head h2{font-size:clamp(1.8rem, 3vw, 2.8rem);line-height:1.1;letter-spacing:-.03em;margin:14px 0}
+.cards-grid{grid-template-columns:repeat(3,1fr)}
+.card-icon,.step-num{
+  width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(18,199,195,.11);color:var(--primary);font-weight:800;margin-bottom:16px;border:1px solid rgba(18,199,195,.2)
+}
+.card h3,.step h4,.content-box h3,.form-card h3,.info-card h3{margin:0 0 10px;line-height:1.16}
+.split-grid,.form-section{grid-template-columns:repeat(2,1fr)}
+.check-list li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.check-list li:last-child{border-bottom:0}
+.check{
+  width:28px;height:28px;border-radius:999px;display:grid;place-items:center;
+  background:rgba(18,199,195,.12);color:var(--primary);font-weight:800;flex:0 0 28px
+}
+.check-list strong{display:block;margin-bottom:3px}
+.check-list span:last-child{color:var(--muted)}
+.cta-band{text-align:center;padding:34px}
+.cta-band h3{font-size:clamp(1.4rem, 2.3vw, 2.2rem);line-height:1.12;margin:0 0 12px}
+.input,.select,textarea{
+  width:100%;background:#0a1a2c;border:1px solid rgba(255,255,255,.08);color:var(--text);
+  border-radius:14px;min-height:52px;padding:14px 16px;font:inherit;outline:none
+}
+textarea{min-height:136px;resize:vertical}
+.input:focus,.select:focus,textarea:focus{border-color:rgba(18,199,195,.5);box-shadow:0 0 0 4px rgba(18,199,195,.12)}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.full{grid-column:1/-1}
+.success-message{
+  padding:18px;border-radius:18px;background:rgba(25,210,143,.1);
+  border:1px solid rgba(25,210,143,.24);margin-bottom:16px
+}
+.success-message h4{margin:0 0 6px}
+.faq{display:grid;gap:14px;max-width:900px;margin:0 auto}
+.faq details{
+  border:1px solid var(--line);border-radius:18px;padding:18px 22px;background:rgba(255,255,255,.03)
+}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{margin:12px 0 0;color:var(--muted)}
+footer{padding:26px 0 42px;color:#9bb3ca}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
+@media (max-width: 960px){
+  .hero-grid,.split-grid,.form-section,.cards-grid,.stats-band,.metrics,.form-grid{grid-template-columns:1fr}
+  .topbar{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="topbar">
+        <a href="#" class="brand" aria-label="Tarso">
+          <span class="brand-mark">T</span>
+          <span>Tarso Tecnologia</span>
+        </a>
+
+        <div class="topbar-actions">
+          <a href="#formulario" class="btn btn-secondary">Solicitar avaliação</a>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Diagnóstico de portal digital | Tarso</span>
+
+          <h1>Sua operação de serviços já pede um portal próprio para escalar sem perder experiência?</h1>
+
+          <p class="hero-subtitle">A Tarso analisa jornada, gargalos operacionais, integrações e oportunidades para transformar atendimento e execução em uma experiência digital mais fluida.</p>
+
+          <div class="btn-row">
+            <a href="#formulario" class="btn btn-secondary">
+              Receber avaliação preliminar
+            </a>
+          </div>
+
+          <ul class="hero-points">
+            <li>Reunião executiva de 15 minutos</li>
+            <li>Diagnóstico inicial sem custo</li>
+            <li>Foco em operação, experiência e escalabilidade</li>
+            <li>Indicado para empresas de serviços em crescimento</li>
+          </ul>
+
+          <p class="hero-note">
+            Diagnóstico inicial realizado mediante avaliação de aderência ao perfil da empresa.
+          </p>
+        </div>
+
+        <div class="hero-side">
+          <div class="glass-card hero-panel">
+            <div>
+              <div class="metrics">
+                <div class="metric">
+                  <strong>+22%</strong>
+                  <span>potencial típico de eficiência percebida em fluxos digitalizados</span>
+                </div>
+                <div class="metric">
+                  <strong>15 min</strong>
+                  <span>para entender contexto, fricções e maturidade</span>
+                </div>
+                <div class="metric">
+                  <strong>90 dias</strong>
+                  <span>para desenhar um plano inicial de MVP e evolução</span>
+                </div>
+              </div>
+
+              <h2 class="panel-title">O que a liderança ganha com o diagnóstico</h2>
+
+              <p class="panel-text">Uma visão executiva de onde a operação perde eficiência, onde a experiência do cliente se quebra e como um portal pode gerar escala com mais controle.</p>
+            </div>
+
+            <ul class="panel-list">
+              <li>Mapa dos gargalos entre atendimento, backoffice e jornada do cliente</li>
+              <li>Leitura das oportunidades de autosserviço, área logada e workflows digitais</li>
+              <li>Recomendações objetivas para MVP, integrações e evolução de produto</li>
+              <li>Próximos passos realistas para avançar sem inflar o escopo no primeiro round</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section section-sm">
+    <div class="container">
+      <div class="stats-band">
+        <div class="stat-card">
+          <strong>Atendimento</strong>
+          <p>Processos manuais e descentralizados aumentam tempo, erro e fricção percebida pelo cliente.</p>
+        </div>
+        <div class="stat-card">
+          <strong>Experiência</strong>
+          <p>Sem jornada digital consistente, a empresa cresce, mas a sensação do cliente encolhe.</p>
+        </div>
+        <div class="stat-card">
+          <strong>Escala</strong>
+          <p>Operação baseada em improviso tende a contratar mais gente antes de consertar o fluxo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contexto">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Contexto executivo</span>
+        <h2>Quando a base de clientes cresce, o improviso operacional vira gargalo estratégico</h2>
+        <p>Sem uma experiência digital bem desenhada, atendimento, execução e relacionamento ficam mais caros, lentos e difíceis de padronizar.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-icon">01</div>
+          <h3>Processos dispersos</h3>
+          <p>Planilhas, e-mails, WhatsApp e sistemas isolados criam uma operação difícil de escalar.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">02</div>
+          <h3>Jornada inconsistente</h3>
+          <p>O cliente sente atrito no onboarding, no acompanhamento e no suporte.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">03</div>
+          <h3>Dependência de ferramentas prontas</h3>
+          <p>Soluções genéricas até ajudam no começo, mas depois cobram aluguel emocional e operacional.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="avaliacao">
+    <div class="container">
+      <div class="split-grid">
+        <div class="content-box">
+          <span class="eyebrow">O que a Tarso avalia</span>
+          <h3>Uma análise estruturada da operação, da experiência e do desenho digital</h3>
+          <p>O diagnóstico combina visão de negócio, jornada e tecnologia para mostrar onde um portal realmente agrega valor — e onde seria só enfeite caro.</p>
+
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Fluxos operacionais</strong>
+                <span>Mapeamento das etapas críticas entre atendimento, backoffice e cliente.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Experiência e jornada</strong>
+                <span>Pontos de atrito, espera, retrabalho e oportunidades de autosserviço.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Integrações necessárias</strong>
+                <span>Conexão entre portal, CRM, ERP, financeiro e sistemas internos.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Escalabilidade da operação</strong>
+                <span>Onde a digitalização pode reduzir custo e aumentar capacidade de entrega.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="content-box">
+          <span class="eyebrow">Entregáveis</span>
+          <h3>O que sua equipe recebe ao final da avaliação</h3>
+          <p>A saída da avaliação é um direcionamento claro, com foco em valor de negócio e pragmatismo de execução.</p>
+
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Visão executiva do cenário atual</strong>
+                <span>Leitura da maturidade digital da operação de serviços.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Principais gargalos identificados</strong>
+                <span>Fricções que impactam experiência, eficiência e escala.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Oportunidades priorizadas</strong>
+                <span>Onde um portal pode gerar ganho real no curto e médio prazo.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Próximos passos sugeridos</strong>
+                <span>Orientação inicial para MVP, módulos e evolução em até 90 dias.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="processo">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Um processo simples, executivo e objetivo</h2>
+        <p>O diagnóstico foi desenhado para gerar clareza sem aumentar a carga da sua equipe.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Conversa inicial</h4>
+            <p>Reunião de 15 minutos para entender contexto, desafios, prioridades e sinais de maturidade.</p>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Análise executiva</h4>
+            <p>Avaliação dos principais pontos de processo, governança, integração e eficiência relacionados ao cenário atual.</p>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Devolutiva estruturada</h4>
+            <p>Apresentação das oportunidades identificadas, riscos percebidos e próximos passos recomendados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sm">
+    <div class="container">
+      <div class="cta-band">
+        <h3>Descubra onde sua operação pode ganhar escala, controle e melhor experiência</h3>
+        <p>Uma conversa executiva com a Tarso ajuda a entender se um portal digital faz sentido agora e como estruturar isso sem transformar o projeto em novela.</p>
+
+        <div class="btn-row" style="justify-content:center; margin-bottom: 0;">
+          <a href="#formulario" class="btn btn-secondary">
+            Solicitar avaliação
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="formulario">
+    <div class="container">
+      <div class="form-section">
+        <div class="info-card">
+          <span class="eyebrow">Para quem é</span>
+          <h3>Empresas de serviços que precisam crescer com mais fluidez operacional</h3>
+          <p>Este diagnóstico faz mais sentido para organizações que já sentem atrito entre atendimento, operação e experiência do cliente.</p>
+
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Operação em crescimento</strong>
+                <span>Empresas com aumento de demanda e pressão por eficiência.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Liderança executiva envolvida</strong>
+                <span>CEO, COO, diretoria de operações ou liderança equivalente.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Necessidade de área logada ou autosserviço</strong>
+                <span>Quando clientes, parceiros ou equipes já pedem um fluxo digital melhor.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Ambiente com múltiplas ferramentas</strong>
+                <span>Quando CRM, ERP, financeiro e atendimento não conversam como deveriam.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <span class="eyebrow">Solicitar avaliação</span>
+          <h3>Fale com a Tarso</h3>
+          <p>Preencha os dados abaixo para solicitar uma avaliação preliminar do seu cenário.</p>
+
+          <div id="success-box-2" class="success-message" style="display:none;">
+            <h4>Mensagem enviada com sucesso</h4>
+            <p>Recebemos sua solicitação. Em breve a equipe da Tarso entra em contato com os próximos passos.</p>
+          </div>
+
+          <form
+            id="form-2"
+            action="https://hub.tarso.tech/api/lp_captura_leads"
+            method="POST"
+            target="form_target_2"
+          >
+            <div class="form-grid">
+              <div>
+                <input class="input" type="text" name="nome" placeholder="Seu nome" required />
+              </div>
+
+              <div>
+                <input class="input" type="email" name="email" placeholder="E-mail corporativo" required />
+              </div>
+
+              <div>
+                <input class="input" type="text" name="empresa" placeholder="Empresa" required />
+                <small id="empresaHint-2" class="field-note"></small>
+              </div>
+
+              <div>
+                <input class="input" type="text" name="cargo" placeholder="Cargo" />
+              </div>
+
+              <div>
+                <input class="input" type="tel" name="telefone" placeholder="Telefone / WhatsApp" />
+                <small id="telefoneErro-2" class="error-note"></small>
+              </div>
+
+              <div>
+                <select class="select" name="faixa_faturamento">
+                  <option value="">Faixa de faturamento</option>
+                  <option value="ate_10m">Até R$ 10M</option>
+                  <option value="10m_50m">R$ 10M a R$ 50M</option>
+                  <option value="50m_200m">R$ 50M a R$ 200M</option>
+                  <option value="acima_200m">Acima de R$ 200M</option>
+                </select>
+              </div>
+
+              <div class="full">
+                <textarea
+                  name="desafio"
+                  placeholder="Qual é hoje o principal desafio em atendimento, operação, autosserviço ou experiência digital?"
+                ></textarea>
+              </div>
+            </div>
+
+            <input type="hidden" name="origem" value="LP CEO COO Portal Digital - ICP 2" />
+            <input type="hidden" name="utm_source" id="utm_source" value="Ads" />
+            <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+            <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+            <input type="hidden" name="icp_id" id="icp_id" value="2" />
+
+            <div style="margin-top:18px;">
+              <button type="submit" id="submit-btn-2" class="btn btn-primary" style="width:100%;">
+                Solicitar avaliação
+              </button>
+            </div>
+
+            <p class="form-footnote micro-note" style="margin: 12px 0 0;">
+              A avaliação inicial está sujeita à aderência do perfil e à disponibilidade da agenda da Tarso.
+            </p>
+          </form>
+
+          <iframe
+            name="form_target_2"
+            id="form_target_2"
+            style="width:0;height:0;border:0;visibility:hidden;"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2>O que sua equipe pode esperar</h2>
+        <p>Sem fumaça, sem PowerPoint performático, sem buzzword solta em liberdade.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>O diagnóstico tem custo?</summary>
+          <p>Não. A etapa inicial é gratuita e ajuda a entender aderência, contexto e oportunidades de evolução.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva a conversa inicial?</summary>
+          <p>Normalmente 15 minutos. O suficiente para entender a dor sem transformar a agenda num congresso.</p>
+        </details>
+        <details>
+          <summary>Quem deve participar?</summary>
+          <p>O ideal é contar com CEO, COO ou uma liderança diretamente ligada à operação e experiência do cliente.</p>
+        </details>
+        <details>
+          <summary>Vocês avaliam só tecnologia?</summary>
+          <p>Não. O foco é entender fluxo, experiência, processo e tecnologia juntos — porque portal bom resolve operação, não só layout.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-row">
+      <span>Copyright ©2026 Tarso · Todos os direitos reservados.</span>
+      <span>Diagnóstico executivo para operações mais previsíveis, eficientes e escaláveis.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+
+      ["utm_source", "utm_medium", "utm_campaign", "icp_id"].forEach((name) => {
+        const el = document.getElementById(name);
+        if (el && params.get(name)) {
+          el.value = params.get(name);
+        }
+      });
+
+      const form = document.getElementById("form-2");
+      const iframe = document.getElementById("form_target_2");
+      const successBox = document.getElementById("success-box-2");
+      const submitBtn = document.getElementById("submit-btn-2");
+
+      const emailInput = form?.querySelector('input[name="email"]');
+      const empresaInput = form?.querySelector('input[name="empresa"]');
+      const telefoneInput = form?.querySelector('input[name="telefone"]');
+
+      let empresaHubInput = form?.querySelector('input[name="empresa_hub"]');
+      let empresaHint = document.getElementById("empresaHint-2");
+      let telefoneErro = document.getElementById("telefoneErro-2");
+
+      const DOMINIOS_GENERICOS = [
+        "gmail.com","hotmail.com","outlook.com","outlook.com.br","live.com","live.com.br","msn.com",
+        "yahoo.com","yahoo.com.br","icloud.com","me.com","uol.com.br","bol.com.br","terra.com.br",
+        "proton.me","protonmail.com","aol.com","ig.com.br","globo.com"
+      ];
+
+      const EMPRESA_GENERICA_HUB = "Pessoa Física / Email genérico";
+
+      function garantirCampoOcultoEmpresaHub() {
+        if (!form) return null;
+        if (!empresaHubInput) {
+          empresaHubInput = document.createElement("input");
+          empresaHubInput.type = "hidden";
+          empresaHubInput.name = "empresa_hub";
+          empresaHubInput.id = "empresa_hub";
+          form.appendChild(empresaHubInput);
+        }
+        return empresaHubInput;
+      }
+
+      function extrairEmpresaDoEmail(email) {
+        const valor = (email || "").trim().toLowerCase();
+        if (!valor || !valor.includes("@")) return "";
+        const dominio = valor.split("@")[1];
+        if (!dominio || DOMINIOS_GENERICOS.includes(dominio)) return "";
+        const partes = dominio.split(".");
+        if (!partes.length) return "";
+        const base = partes[0].replace(/[^a-z0-9-]/gi, " ").replace(/[-_]+/g, " ").trim();
+        if (!base) return "";
+        return base.split(" ").map((parte) => parte.charAt(0).toUpperCase() + parte.slice(1)).join(" ");
+      }
+
+      function aplicarSugestaoEmpresa() {
+        if (!emailInput || !empresaInput) return;
+        const hidden = garantirCampoOcultoEmpresaHub();
+        const empresaSugerida = extrairEmpresaDoEmail(emailInput.value);
+        const campoEditadoManualmente = empresaInput.dataset.editadoManualmente === "true";
+
+        if (empresaSugerida) {
+          if (!campoEditadoManualmente && !empresaInput.value.trim()) {
+            empresaInput.value = empresaSugerida;
+          }
+          if (hidden) hidden.value = empresaInput.value.trim() || empresaSugerida;
+          if (empresaHint) {
+            empresaHint.textContent = "Sugestão automática baseada no domínio do e-mail corporativo.";
+          }
+        } else {
+          if (hidden) hidden.value = EMPRESA_GENERICA_HUB;
+          if (empresaHint) {
+            empresaHint.textContent = "Para e-mails genéricos, a empresa pode ser revisada no atendimento.";
+          }
+        }
+      }
+
+      function somenteDigitos(valor) {
+        return (valor || "").replace(/\D/g, "");
+      }
+
+      function mascaraTelefoneBrasil(valor) {
+        const digitos = somenteDigitos(valor).slice(0, 11);
+        if (digitos.length <= 2) return digitos;
+        if (digitos.length <= 6) return `(${digitos.slice(0, 2)}) ${digitos.slice(2)}`;
+        if (digitos.length <= 10) {
+          return `(${digitos.slice(0, 2)}) ${digitos.slice(2, 6)}-${digitos.slice(6)}`;
+        }
+        return `(${digitos.slice(0, 2)}) ${digitos.slice(2, 7)}-${digitos.slice(7)}`;
+      }
+
+      function validarWhatsApp(valor) {
+        const digitos = somenteDigitos(valor);
+        if (!digitos.length) {
+          return { valido: true, mensagem: "" };
+        }
+        if (digitos.length < 10 || digitos.length > 11) {
+          return { valido: false, mensagem: "Digite um telefone com DDD válido." };
+        }
+        if (digitos.length === 11 && digitos[2] !== "9") {
+          return { valido: false, mensagem: "Para celular/WhatsApp, inclua o 9 após o DDD." };
+        }
+        return { valido: true, mensagem: "" };
+      }
+
+      function configurarEventos() {
+        garantirCampoOcultoEmpresaHub();
+        if (emailInput) {
+          emailInput.addEventListener("input", aplicarSugestaoEmpresa);
+          emailInput.addEventListener("blur", aplicarSugestaoEmpresa);
+        }
+        if (empresaInput) {
+          empresaInput.addEventListener("input", function () {
+            const valor = empresaInput.value.trim();
+            empresaInput.dataset.editadoManualmente = valor ? "true" : "";
+            if (empresaHubInput && valor) {
+              empresaHubInput.value = valor;
+            }
+          });
+        }
+        if (telefoneInput) {
+          telefoneInput.addEventListener("input", function (e) {
+            e.target.value = mascaraTelefoneBrasil(e.target.value);
+            const resultado = validarWhatsApp(e.target.value);
+            if (!e.target.value.trim()) {
+              if (telefoneErro) telefoneErro.textContent = "";
+              telefoneInput.setCustomValidity("");
+              return;
+            }
+            if (!resultado.valido) {
+              if (telefoneErro) telefoneErro.textContent = resultado.mensagem;
+              telefoneInput.setCustomValidity(resultado.mensagem);
+            } else {
+              if (telefoneErro) telefoneErro.textContent = "";
+              telefoneInput.setCustomValidity("");
+            }
+          });
+          telefoneInput.addEventListener("blur", function () {
+            const resultado = validarWhatsApp(telefoneInput.value);
+            if (!resultado.valido && telefoneInput.value.trim()) {
+              if (telefoneErro) telefoneErro.textContent = resultado.mensagem;
+              telefoneInput.setCustomValidity(resultado.mensagem);
+              telefoneInput.reportValidity();
+            }
+          });
+        }
+      }
+
+      if (form && iframe) {
+        configurarEventos();
+        form.addEventListener("submit", function (e) {
+          aplicarSugestaoEmpresa();
+          if (telefoneInput) {
+            const telefoneValido = validarWhatsApp(telefoneInput.value);
+            if (!telefoneValido.valido) {
+              e.preventDefault();
+              if (telefoneErro) telefoneErro.textContent = telefoneValido.mensagem;
+              telefoneInput.setCustomValidity(telefoneValido.mensagem);
+              telefoneInput.reportValidity();
+              return;
+            }
+            telefoneInput.setCustomValidity("");
+          }
+          if (empresaInput && empresaHubInput && !empresaInput.value.trim() && empresaHubInput.value === EMPRESA_GENERICA_HUB) {
+            empresaInput.value = "Não informado";
+          }
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Enviando...";
+          }
+        });
+
+        iframe.addEventListener("load", function () {
+          if (successBox) successBox.style.display = "block";
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Mensagem enviada!";
+          }
+          if (form) form.reset();
+          if (empresaInput) delete empresaInput.dataset.editadoManualmente;
+          if (empresaHubInput) empresaHubInput.value = "";
+          if (empresaHint) empresaHint.textContent = "";
+          if (telefoneErro) telefoneErro.textContent = "";
+        });
+      }
+    })();
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17893513347"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "AW-17893513347");
+  </script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      Calendly.initBadgeWidget({
+        url: "https://calendly.com/tarso-calendly/agenda-tarso-15min",
+        text: "Agenda rápida de 15 min",
+        color: "#12c7c3",
+        textColor: "#ffffff",
+        branding: true
+      });
+    };
+  </script>
+</body>
+</html>
