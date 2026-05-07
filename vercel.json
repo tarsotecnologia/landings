@@ -44,6 +44,18 @@
       "use": "@vercel/static"
     },
     {
+      "src": "playbook-icp1-dor-operacional.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "playbook-icp2-tecnologia-sobrecarregada.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "playbook-icp3-organizacoes-complexas.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "assets/**/*",
       "use": "@vercel/static"
     }
