@@ -343,29 +343,12 @@
 
           <form id="form-1" action="https://hub.tarso.tech/api/lp_captura_leads" method="POST" target="form_target_1">
             <div class="form-grid">
-              <div><input class="input" type="text" name="nome" placeholder="Seu nome" required /></div>
-              <div><input class="input" type="email" name="email" placeholder="E-mail corporativo" required /></div>
-              <div>
-                <input class="input" type="text" name="empresa" placeholder="Empresa" required />
-                <small id="empresaHint-1" class="field-note"></small>
-              </div>
-              <div><input class="input" type="text" name="cargo" placeholder="Cargo" /></div>
-              <div>
-                <input class="input" type="tel" name="telefone" placeholder="WhatsApp com DDD" />
+              <div class="full"><input class="input" type="text" name="nome" placeholder="Seu nome" required /></div>
+              <div class="full">
+                <input class="input" type="tel" name="telefone" placeholder="WhatsApp com DDD" required />
                 <small id="telefoneErro-1" class="error-note"></small>
               </div>
-              <div>
-                <select class="select" name="faixa_faturamento">
-                  <option value="">Faturamento anual aproximado</option>
-                  <option value="ate_1m">Até R$ 1M</option>
-                  <option value="1m_5m">R$ 1M a R$ 5M</option>
-                  <option value="5m_20m">R$ 5M a R$ 20M</option>
-                  <option value="acima_20m">Acima de R$ 20M</option>
-                </select>
-              </div>
-              <div class="full">
-                <textarea name="desafio" placeholder="Qual processo hoje consome mais tempo da sua equipe ou gera mais retrabalho?"></textarea>
-              </div>
+              <div class="full"><input class="input" type="email" name="email" placeholder="E-mail (opcional)" /></div>
             </div>
 
             <input type="hidden" name="origem" value="LP Playbook ICP1 - Dor Operacional" />

@@ -337,29 +337,12 @@
 
           <form id="form-2" action="https://hub.tarso.tech/api/lp_captura_leads" method="POST" target="form_target_2">
             <div class="form-grid">
-              <div><input class="input" type="text" name="nome" placeholder="Seu nome" required /></div>
-              <div><input class="input" type="email" name="email" placeholder="E-mail corporativo" required /></div>
-              <div>
-                <input class="input" type="text" name="empresa" placeholder="Empresa" required />
-                <small id="empresaHint-2" class="field-note"></small>
-              </div>
-              <div><input class="input" type="text" name="cargo" placeholder="Cargo" /></div>
-              <div>
-                <input class="input" type="tel" name="telefone" placeholder="WhatsApp com DDD" />
+              <div class="full"><input class="input" type="text" name="nome" placeholder="Seu nome" required /></div>
+              <div class="full">
+                <input class="input" type="tel" name="telefone" placeholder="WhatsApp com DDD" required />
                 <small id="telefoneErro-2" class="error-note"></small>
               </div>
-              <div>
-                <select class="select" name="faixa_faturamento">
-                  <option value="">Faturamento anual aproximado</option>
-                  <option value="ate_10m">Até R$ 10M</option>
-                  <option value="10m_50m">R$ 10M a R$ 50M</option>
-                  <option value="50m_200m">R$ 50M a R$ 200M</option>
-                  <option value="acima_200m">Acima de R$ 200M</option>
-                </select>
-              </div>
-              <div class="full">
-                <textarea name="desafio" placeholder="Quais projetos estão parados hoje? O que o time não consegue absorver?"></textarea>
-              </div>
+              <div class="full"><input class="input" type="email" name="email" placeholder="E-mail (opcional)" /></div>
             </div>
 
             <input type="hidden" name="origem" value="LP Playbook ICP2 - Tecnologia Sobrecarregada" />

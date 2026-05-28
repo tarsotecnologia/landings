@@ -328,29 +328,12 @@
 
           <form id="form-3" action="https://hub.tarso.tech/api/lp_captura_leads" method="POST" target="form_target_3">
             <div class="form-grid">
-              <div><input class="input" type="text" name="nome" placeholder="Seu nome" required /></div>
-              <div><input class="input" type="email" name="email" placeholder="E-mail corporativo" required /></div>
-              <div>
-                <input class="input" type="text" name="empresa" placeholder="Empresa" required />
-                <small id="empresaHint-3" class="field-note"></small>
-              </div>
-              <div><input class="input" type="text" name="cargo" placeholder="Cargo (ex: CIO, Diretor de TI)" /></div>
-              <div>
-                <input class="input" type="tel" name="telefone" placeholder="WhatsApp com DDD" />
+              <div class="full"><input class="input" type="text" name="nome" placeholder="Seu nome" required /></div>
+              <div class="full">
+                <input class="input" type="tel" name="telefone" placeholder="WhatsApp com DDD" required />
                 <small id="telefoneErro-3" class="error-note"></small>
               </div>
-              <div>
-                <select class="select" name="faixa_faturamento">
-                  <option value="">Faturamento anual aproximado</option>
-                  <option value="50m_200m">R$ 50M a R$ 200M</option>
-                  <option value="200m_1b">R$ 200M a R$ 1B</option>
-                  <option value="acima_1b">Acima de R$ 1B</option>
-                  <option value="nao_informar">Prefiro não informar</option>
-                </select>
-              </div>
-              <div class="full">
-                <textarea name="desafio" placeholder="Qual é o principal desafio de modernização, integração ou arquitetura que sua organização enfrenta hoje?"></textarea>
-              </div>
+              <div class="full"><input class="input" type="email" name="email" placeholder="E-mail (opcional)" /></div>
             </div>
 
             <input type="hidden" name="origem" value="LP Playbook ICP3 - Organizações Complexas" />
