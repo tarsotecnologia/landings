@@ -40,86 +40,68 @@
   }
   </script>
   <meta charset="UTF-8" />
-  <title>Seu backlog de tecnologia não para de crescer? | Tarso</title>
+  <title>Seu backlog de tecnologia não para de crescer? A Tarso resolve isso | Tarso</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Time interno insuficiente, backlog parado e sistemas desconectados? A Tarso entra como parceiro técnico e desobstrui o que está travando o crescimento." />
+  <meta name="description" content="Time interno insuficiente, backlog acumulado e sistemas desconectados? A Tarso entra como parceiro técnico e entrega o que seu time não consegue absorver." />
   <link rel="stylesheet" href="assets/css/style2.css" />
   <style>
     .wa-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 16px 32px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff; font-weight: 700; font-size: .95rem;
+      padding: 14px 28px; border-radius: 999px; text-decoration: none;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 24px rgba(37,211,102,.35);
     }
     .wa-btn:hover { background: #1ebe58; transform: translateY(-2px); }
-    .wa-icon { width: 22px; height: 22px; flex-shrink: 0; }
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .pain-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-sm);
-      padding: 24px;
-    }
-    .pain-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
-    .pain-card h3 { margin: 0 0 8px; font-size: 1rem; color: var(--text); }
-    .pain-card p { margin: 0; font-size: .9rem; color: var(--muted); }
-    .cta-center { text-align: center; padding: 80px 0 60px; }
-    .cta-center h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 12px; }
-    .cta-center p { color: var(--muted); margin-bottom: 28px; font-size: 1rem; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(37,211,102,0.12);
-      border: 1px solid rgba(37,211,102,0.25);
-      color: #6ee7b7;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-      letter-spacing: .03em;
-    }
-    .sub-note { color: var(--muted); font-size: .82rem; margin-top: 14px; }
-    .split-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-      margin-top: 56px;
-    }
-    @media (max-width: 680px) { .split-hero { grid-template-columns: 1fr; } }
-    .metric-stack { display: flex; flex-direction: column; gap: 16px; }
-    .metric-item {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-sm);
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-    .metric-item strong { font-size: 1.6rem; color: var(--primary); display: block; }
-    .metric-item span { font-size: .88rem; color: var(--muted); }
+    .wa-btn.sm { padding: 11px 22px; font-size: .88rem; }
+    .wa-icon { width: 20px; height: 20px; flex-shrink: 0; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 28px; }
+    .trust-bar { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 24px; }
+    .trust-item { display: flex; align-items: center; gap: 7px; font-size: .82rem; color: var(--muted); }
+    .trust-item::before { content: "✓"; color: #25D366; font-weight: 700; }
+    .stats-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+    .stat-card { background: var(--surface-strong); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 28px 24px; text-align: center; }
+    .stat-card strong { display: block; font-size: 2rem; color: var(--primary); font-weight: 800; }
+    .stat-card p { margin: 6px 0 0; font-size: .88rem; color: var(--muted); }
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-top: 40px; }
+    .pain-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-sm); padding: 26px; }
+    .pain-card .icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .pain-card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .pain-card p { margin: 0; font-size: .88rem; color: var(--muted); }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 48px; }
+    .feature-card { border: 1px solid rgba(18,199,195,.18); border-radius: var(--radius-sm); padding: 30px 26px; }
+    .feature-card .f-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .feature-card h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--primary); }
+    .feature-card p { margin: 0; font-size: .88rem; color: var(--muted); line-height: 1.6; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 48px; }
+    .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 28px 24px; }
+    .step-num { width: 40px; height: 40px; border-radius: 999px; background: rgba(18,199,195,.15); border: 1px solid rgba(18,199,195,.3); color: var(--primary); font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .step-card h4 { margin: 0 0 8px; font-size: 1rem; }
+    .step-card p { margin: 0; font-size: .87rem; color: var(--muted); }
+    .cta-band { background: linear-gradient(135deg, rgba(18,199,195,.12), rgba(125,211,252,.06)); border: 1px solid rgba(18,199,195,.2); border-radius: var(--radius); padding: 56px 48px; text-align: center; }
+    .cta-band h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin: 0 0 10px; }
+    .cta-band p { color: var(--muted); margin: 0 0 28px; }
+    .cta-band-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .section-head { text-align: center; max-width: 620px; margin: 0 auto 48px; }
+    .section-head h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 14px 0 10px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 36px; }
+    .tag { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 8px 18px; font-size: .84rem; color: var(--muted); }
+    footer { background: rgba(0,0,0,.3); border-top: 1px solid var(--border); padding: 40px 0; }
+    .footer-inner { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    .footer-brand img { height: 28px; }
+    .footer-info { font-size: .8rem; color: var(--muted); margin-top: 8px; line-height: 1.7; }
+    .footer-right { text-align: right; font-size: .8rem; color: var(--muted); line-height: 1.7; }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } .footer-right { text-align: left; } }
   </style>
 </head>
 <body>
 
+  <!-- ══ HEADER ══ -->
   <header class="hero">
     <div class="container">
       <div class="topbar">
-        <a href="#" class="brand" aria-label="Tarso">
+        <a href="https://tarso.tech" class="brand" aria-label="Tarso" target="_blank" rel="noopener">
           <img src="assets/images/tarso-logo.png" alt="Tarso Tecnologia" />
         </a>
         <a href="https://wa.me/5511933728086?text=Ol%C3%A1%21+Tenho+backlog+tecnol%C3%B3gico+acumulado+e+preciso+de+apoio+t%C3%A9cnico." onclick="gtag_report_conversion(); return true;" class="wa-btn" target="_blank" rel="noopener">
@@ -144,64 +126,200 @@
           <p class="sub-note">Sem processo longo · Resposta rápida</p>
         </div>
 
-        <div class="metric-stack">
-          <div class="metric-item">
-            <div>
-              <strong>Backlog</strong>
-              <span>Projetos parados por falta de time técnico disponível</span>
-            </div>
+          <div class="hero-ctas">
+            <a href="#formulario" class="btn btn-secondary">Falar com um especialista</a>
+            <a href="https://wa.me/5511933728086?text=Ol%C3%A1%21+Tenho+backlog+tecnol%C3%B3gico+acumulado+e+preciso+de+apoio+t%C3%A9cnico." class="wa-btn" target="_blank" rel="noopener">
+              <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Fale com a gente
+            </a>
           </div>
-          <div class="metric-item">
-            <div>
-              <strong>Integração</strong>
-              <span>ERP, CRM, BI e e-commerce desconectados entre si</span>
-            </div>
+
+          <div class="trust-bar">
+            <span class="trust-item">Time técnico especializado</span>
+            <span class="trust-item">Integrado ao seu processo</span>
+            <span class="trust-item">Sem overhead de contratação</span>
           </div>
-          <div class="metric-item">
-            <div>
-              <strong>Velocidade</strong>
-              <span>Ciclos de entrega lentos enquanto o mercado não espera</span>
+        </div>
+
+        <div class="hero-side">
+          <div class="glass-card hero-panel">
+            <div class="metrics">
+              <div class="metric">
+                <strong>Backlog</strong>
+                <span>Projetos parados por falta de time técnico disponível</span>
+              </div>
+              <div class="metric">
+                <strong>Integração</strong>
+                <span>ERP, CRM, BI e plataformas desconectados entre si</span>
+              </div>
+              <div class="metric">
+                <strong>Velocidade</strong>
+                <span>Ciclos de entrega lentos enquanto o mercado não espera</span>
+              </div>
             </div>
+            <h2 class="panel-title">O que muda com a Tarso no time</h2>
+            <ul class="panel-list">
+              <li>Backlog destravado e projetos entregues com ritmo</li>
+              <li>Sistemas integrados num fluxo único e confiável</li>
+              <li>Produto digital evoluindo sem depender de contratação</li>
+              <li>Liderança com visibilidade real do que está sendo entregue</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </header>
 
+  <!-- ══ STATS ══ -->
   <section class="section section-sm">
     <div class="container">
-      <div style="text-align:center; margin-bottom: 40px;">
-        <span class="eyebrow">O que a Tarso resolve</span>
-        <h2 style="font-size: clamp(1.4rem, 2.5vw, 1.9rem); margin-top: 16px;">Capacidade técnica quando você mais precisa</h2>
-      </div>
-      <div class="pain-grid">
-        <div class="pain-card">
-          <div class="icon">🧑‍💻</div>
-          <h3>Squad sob demanda</h3>
-          <p>Desenvolvedores, arquitetos e DevOps integrados ao seu processo sem overhead de contratação.</p>
+      <div class="stats-band">
+        <div class="stat-card">
+          <strong>Backlog</strong>
+          <p>O principal gargalo de empresas em crescimento que já dependem de tecnologia para operar.</p>
         </div>
-        <div class="pain-card">
-          <div class="icon">🔗</div>
-          <h3>Integração de sistemas</h3>
-          <p>ERP, plataforma, APIs e dados conectados num fluxo único e confiável.</p>
+        <div class="stat-card">
+          <strong>Contratação</strong>
+          <p>Vagas técnicas abertas há meses sem preenchimento — enquanto o projeto fica parado.</p>
         </div>
-        <div class="pain-card">
-          <div class="icon">☁️</div>
-          <h3>Cloud e DevOps</h3>
-          <p>Infraestrutura, pipelines e automação de deploy para acelerar a entrega.</p>
-        </div>
-        <div class="pain-card">
-          <div class="icon">🚀</div>
-          <h3>Evolução de produto</h3>
-          <p>App, portal ou plataforma evoluindo com ritmo e qualidade — sem travar no backlog.</p>
+        <div class="stat-card">
+          <strong>Integração</strong>
+          <p>Sistemas que não conversam geram retrabalho, atraso e decisões baseadas em dados errados.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-sm">
+  <!-- ══ DORES ══ -->
+  <section class="section" id="dores">
     <div class="container">
-      <div class="cta-center">
+      <div class="section-head">
+        <span class="eyebrow">Você reconhece isso?</span>
+        <h2>Os desafios de quem cresce mas não consegue entregar na velocidade que o negócio exige</h2>
+        <p>Se sua empresa já depende de tecnologia para crescer, mas o time não consegue absorver tudo, a Tarso entra exatamente aqui.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="icon">📋</div>
+          <h3>Backlog que não zera</h3>
+          <p>Itens acumulando, sprints atrasando e a sensação de que o time corre mas não avança.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">🧑‍💻</div>
+          <h3>Vaga técnica aberta há meses</h3>
+          <p>Contratação demorada, candidatos escassos e o projeto travado esperando a pessoa certa.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">🔗</div>
+          <h3>Sistemas que não conversam</h3>
+          <p>ERP, CRM, BI e e-commerce funcionando em silos, sem integração e gerando retrabalho.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">🐌</div>
+          <h3>Baixa velocidade de entrega</h3>
+          <p>Deploy manual, sem CI/CD, sem DevOps estruturado — cada entrega vira um risco.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">🏚️</div>
+          <h3>Legado limitando o crescimento</h3>
+          <p>Sistemas antigos que ninguém quer tocar mas que bloqueiam novas funcionalidades.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">📱</div>
+          <h3>Produto digital que precisa evoluir</h3>
+          <p>App, portal ou plataforma parada na fila enquanto o roadmap cresce e o mercado avança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SOLUÇÃO ══ -->
+  <section class="section" id="solucao">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Como a Tarso atua</span>
+        <h2>Capacidade técnica sob demanda — quando e como você precisar</h2>
+        <p>A Tarso funciona como extensão do seu time: entra no contexto, segue o processo e entrega com responsabilidade técnica real.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="f-icon">🧑‍💻</div>
+          <h3>Squad as a Service</h3>
+          <p>Desenvolvedores, arquitetos e especialistas integrados ao seu time e processo — sem processo longo de contratação.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🔗</div>
+          <h3>Integração de sistemas</h3>
+          <p>ERP, CRM, BI, APIs e plataformas conectados num fluxo único, confiável e rastreável.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">☁️</div>
+          <h3>Cloud e DevOps</h3>
+          <p>Infraestrutura, pipelines de CI/CD e automação de deploy para acelerar e dar segurança à entrega.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🚀</div>
+          <h3>Evolução de produto digital</h3>
+          <p>App, portal, marketplace ou plataforma evoluindo com ritmo, qualidade e alinhamento ao roadmap.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🏗️</div>
+          <h3>Modernização de legado</h3>
+          <p>Refatoração, reescrita e migração de sistemas antigos sem ruptura operacional.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">📊</div>
+          <h3>Fábrica de software</h3>
+          <p>Desenvolvimento de features, módulos e projetos completos com entrega estruturada e visível.</p>
+        </div>
+      </div>
+
+      <div class="tag-cloud">
+        <span class="tag">React / Next.js</span>
+        <span class="tag">Node.js / Python</span>
+        <span class="tag">AWS / GCP / Azure</span>
+        <span class="tag">Kubernetes / Docker</span>
+        <span class="tag">APIs REST / GraphQL</span>
+        <span class="tag">CI/CD pipelines</span>
+        <span class="tag">Microsserviços</span>
+        <span class="tag">Banco de dados</span>
+        <span class="tag">Integrações ERP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COMO FUNCIONA ══ -->
+  <section class="section" id="processo">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Entrada rápida, sem processo de onboarding interminável</h2>
+        <p>A Tarso se adapta ao seu ambiente — não o contrário.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h4>Conversa técnica inicial</h4>
+          <p>Entendemos o contexto, o stack, o backlog e os pontos de maior pressão — sem PowerPoint, sem enrolação.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h4>Proposta de atuação</h4>
+          <p>Definimos o modelo (squad dedicado, projeto ou integração pontual), escopo e forma de trabalho junto ao seu time.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h4>Entrega com ritmo</h4>
+          <p>Time integrado, entregas visíveis e backlog destrancado. Você acompanha o progresso em tempo real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA BAND ══ -->
+  <section class="section section-sm">
+    <div class="container">
+      <div class="cta-band">
         <h2>Chega de backlog acumulado travando o crescimento</h2>
         <p>Conte como está o cenário técnico hoje. A Tarso avalia e já propõe um próximo passo.</p>
         <a href="https://wa.me/5511933728086?text=Ol%C3%A1%21+Tenho+backlog+tecnol%C3%B3gico+acumulado+e+preciso+de+apoio+t%C3%A9cnico." onclick="gtag_report_conversion(); return true;" class="wa-btn" target="_blank" rel="noopener">
@@ -213,12 +331,257 @@
     </div>
   </section>
 
+  <!-- ══ FORMULÁRIO ══ -->
+  <section class="section" id="formulario">
+    <div class="container">
+      <div class="form-section">
+        <div class="info-card">
+          <span class="eyebrow">Para quem é</span>
+          <h3>Empresas com tecnologia relevante e pressão real por velocidade de entrega</h3>
+          <p>A Tarso faz mais sentido para organizações que já dependem de tecnologia para crescer mas não conseguem absorver todo o backlog com o time atual.</p>
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Time interno de TI ou produto existente</strong>
+                <span>A Tarso entra como extensão — não como substituto.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Backlog técnico acumulado</strong>
+                <span>Projetos, integrações ou features parados por falta de capacidade.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Sistemas que precisam ser integrados</strong>
+                <span>ERP, CRM, plataformas, APIs — operando em silos que travam a operação.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Pressão por escala e velocidade</strong>
+                <span>O negócio cresce e a tecnologia precisa acompanhar sem ruptura.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <span class="eyebrow">Falar com um especialista</span>
+          <h3>Conte o seu cenário técnico</h3>
+          <p>Preencha abaixo e nossa equipe técnica entra em contato para entender o backlog e propor como a Tarso pode ajudar.</p>
+
+          <div id="success-box-2" class="success-message" style="display:none;">
+            <h4>Mensagem enviada com sucesso!</h4>
+            <p>Recebemos sua solicitação. Em breve um especialista da Tarso entra em contato.</p>
+          </div>
+
+          <form id="form-2" action="https://hub.tarso.tech/api/lp_captura_leads" method="POST" target="form_target_2">
+            <div class="form-grid">
+              <div class="full"><input class="input" type="text" name="nome" placeholder="Seu nome" required /></div>
+              <div class="full">
+                <input class="input" type="tel" name="telefone" placeholder="WhatsApp com DDD" required />
+                <small id="telefoneErro-2" class="error-note"></small>
+              </div>
+              <div class="full"><input class="input" type="email" name="email" placeholder="E-mail (opcional)" /></div>
+            </div>
+
+            <input type="hidden" name="origem" value="LP Playbook ICP2 - Tecnologia Sobrecarregada" />
+            <input type="hidden" name="utm_source" id="utm_source" value="" />
+            <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+            <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+            <input type="hidden" name="icp_id" value="playbook-2" />
+
+            <div style="margin-top:18px;">
+              <button type="submit" id="submit-btn-2" class="btn btn-primary" style="width:100%;">
+                Falar com um especialista
+              </button>
+            </div>
+            <p class="form-footnote micro-note" style="margin:12px 0 0;">
+              Ou prefere conversar direto? <a href="https://wa.me/5511933728086?text=Ol%C3%A1%21+Tenho+backlog+tecnol%C3%B3gico+acumulado+e+preciso+de+apoio+t%C3%A9cnico." target="_blank" rel="noopener" style="color:var(--primary);">WhatsApp aqui</a>.
+            </p>
+          </form>
+          <iframe name="form_target_2" id="form_target_2" style="width:0;height:0;border:0;visibility:hidden;"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2>O que você precisa saber antes de falar com a Tarso</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>A Tarso substitui ou complementa o time interno?</summary>
+          <p>Complementa. A Tarso entra como extensão — trabalha junto com o seu time existente, seguindo o processo e a cultura da empresa.</p>
+        </details>
+        <details>
+          <summary>Qual é o modelo de contratação?</summary>
+          <p>Pode ser por projeto, squad dedicado ou retainer mensal. Definimos junto na conversa inicial, de acordo com o que faz mais sentido para o seu contexto.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva para o time da Tarso estar produtivo?</summary>
+          <p>Em geral, de 1 a 2 semanas de onboarding técnico. A Tarso se adapta ao ambiente, ferramentas e processo já existentes.</p>
+        </details>
+        <details>
+          <summary>A Tarso atende empresas com stack específico?</summary>
+          <p>Sim. Na conversa inicial mapeamos o stack, o ambiente de infra e as ferramentas usadas para garantir que a equipe seja adequada ao seu contexto.</p>
+        </details>
+        <details>
+          <summary>E se o escopo mudar ao longo do projeto?</summary>
+          <p>Trabalhamos de forma iterativa. Mudanças de escopo são tratadas com transparência — sem surpresas no final do projeto.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <div class="container footer-row">
-      <span>Copyright ©2026 Tarso · Todos os direitos reservados.</span>
-      <span>Parceiro técnico para empresas que não podem esperar o backlog zerar sozinho.</span>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <a href="https://tarso.tech" target="_blank" rel="noopener" class="footer-brand">
+            <img src="assets/images/tarso-logo.png" alt="Tarso Tecnologia" />
+          </a>
+          <div class="footer-info">
+            Tecnologia para automatizar e escalar empresas.<br />
+            Av. Paulista, 2028 CJ 1251 — São Paulo/SP<br />
+            CNPJ: 42.282.250/0001-01
+          </div>
+        </div>
+        <div class="footer-right">
+          Copyright ©2026 Tarso · Todos os direitos reservados.<br />
+          <a href="https://tarso.tech" target="_blank" rel="noopener" style="color:var(--primary);">tarso.tech</a>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      ["utm_source","utm_medium","utm_campaign"].forEach(function(name) {
+        const el = document.getElementById(name);
+        if (el && params.get(name)) el.value = params.get(name);
+      });
+
+      const form = document.getElementById("form-2");
+      const iframe = document.getElementById("form_target_2");
+      const successBox = document.getElementById("success-box-2");
+      const submitBtn = document.getElementById("submit-btn-2");
+      const emailInput = form?.querySelector('input[name="email"]');
+      const empresaInput = form?.querySelector('input[name="empresa"]');
+      const telefoneInput = form?.querySelector('input[name="telefone"]');
+      let empresaHubInput = form?.querySelector('input[name="empresa_hub"]');
+      let empresaHint = document.getElementById("empresaHint-2");
+      let telefoneErro = document.getElementById("telefoneErro-2");
+
+      const DOMINIOS_GENERICOS = ["gmail.com","hotmail.com","outlook.com","outlook.com.br","live.com","live.com.br","msn.com","yahoo.com","yahoo.com.br","icloud.com","me.com","uol.com.br","bol.com.br","terra.com.br","proton.me","protonmail.com","aol.com","ig.com.br","globo.com"];
+      const EMPRESA_GENERICA_HUB = "Pessoa Física / Email genérico";
+
+      function garantirCampoOcultoEmpresaHub() {
+        if (!form) return null;
+        if (!empresaHubInput) {
+          empresaHubInput = document.createElement("input");
+          empresaHubInput.type = "hidden"; empresaHubInput.name = "empresa_hub"; empresaHubInput.id = "empresa_hub";
+          form.appendChild(empresaHubInput);
+        }
+        return empresaHubInput;
+      }
+      function extrairEmpresaDoEmail(email) {
+        const valor = (email || "").trim().toLowerCase();
+        if (!valor || !valor.includes("@")) return "";
+        const dominio = valor.split("@")[1];
+        if (!dominio || DOMINIOS_GENERICOS.includes(dominio)) return "";
+        const base = dominio.split(".")[0].replace(/[^a-z0-9-]/gi," ").replace(/[-_]+/g," ").trim();
+        if (!base) return "";
+        return base.split(" ").map(function(p){ return p.charAt(0).toUpperCase()+p.slice(1); }).join(" ");
+      }
+      function aplicarSugestaoEmpresa() {
+        if (!emailInput || !empresaInput) return;
+        const hidden = garantirCampoOcultoEmpresaHub();
+        const empresaSugerida = extrairEmpresaDoEmail(emailInput.value);
+        const campoEditado = empresaInput.dataset.editadoManualmente === "true";
+        if (empresaSugerida) {
+          if (!campoEditado && !empresaInput.value.trim()) empresaInput.value = empresaSugerida;
+          if (hidden) hidden.value = empresaInput.value.trim() || empresaSugerida;
+          if (empresaHint) empresaHint.textContent = "Sugestão automática baseada no domínio do e-mail corporativo.";
+        } else {
+          if (hidden) hidden.value = EMPRESA_GENERICA_HUB;
+          if (empresaHint) empresaHint.textContent = "Para e-mails genéricos, a empresa pode ser revisada no atendimento.";
+        }
+      }
+      function somenteDigitos(v){ return (v||"").replace(/\D/g,""); }
+      function mascaraTelefoneBrasil(v) {
+        const d = somenteDigitos(v).slice(0,11);
+        if (d.length<=2) return d;
+        if (d.length<=6) return "("+d.slice(0,2)+") "+d.slice(2);
+        if (d.length<=10) return "("+d.slice(0,2)+") "+d.slice(2,6)+"-"+d.slice(6);
+        return "("+d.slice(0,2)+") "+d.slice(2,7)+"-"+d.slice(7);
+      }
+      function validarWhatsApp(v) {
+        const d = somenteDigitos(v);
+        if (!d.length) return {valido:true,mensagem:""};
+        if (d.length<10||d.length>11) return {valido:false,mensagem:"Digite um telefone com DDD válido."};
+        if (d.length===11&&d[2]!=="9") return {valido:false,mensagem:"Para celular/WhatsApp, inclua o 9 após o DDD."};
+        return {valido:true,mensagem:""};
+      }
+      function configurarEventos() {
+        garantirCampoOcultoEmpresaHub();
+        if (emailInput) { emailInput.addEventListener("input",aplicarSugestaoEmpresa); emailInput.addEventListener("blur",aplicarSugestaoEmpresa); }
+        if (empresaInput) {
+          empresaInput.addEventListener("input",function(){
+            const v = empresaInput.value.trim();
+            empresaInput.dataset.editadoManualmente = v?"true":"";
+            if (empresaHubInput&&v) empresaHubInput.value = v;
+          });
+        }
+        if (telefoneInput) {
+          telefoneInput.addEventListener("input",function(e){
+            e.target.value = mascaraTelefoneBrasil(e.target.value);
+            const r = validarWhatsApp(e.target.value);
+            if (!e.target.value.trim()) { if(telefoneErro)telefoneErro.textContent=""; telefoneInput.setCustomValidity(""); return; }
+            if (!r.valido) { if(telefoneErro)telefoneErro.textContent=r.mensagem; telefoneInput.setCustomValidity(r.mensagem); }
+            else { if(telefoneErro)telefoneErro.textContent=""; telefoneInput.setCustomValidity(""); }
+          });
+          telefoneInput.addEventListener("blur",function(){
+            const r = validarWhatsApp(telefoneInput.value);
+            if (!r.valido&&telefoneInput.value.trim()) { if(telefoneErro)telefoneErro.textContent=r.mensagem; telefoneInput.setCustomValidity(r.mensagem); telefoneInput.reportValidity(); }
+          });
+        }
+      }
+      if (form && iframe) {
+        configurarEventos();
+        form.addEventListener("submit",function(e){
+          aplicarSugestaoEmpresa();
+          if (telefoneInput) {
+            const r = validarWhatsApp(telefoneInput.value);
+            if (!r.valido) { e.preventDefault(); if(telefoneErro)telefoneErro.textContent=r.mensagem; telefoneInput.setCustomValidity(r.mensagem); telefoneInput.reportValidity(); return; }
+            telefoneInput.setCustomValidity("");
+          }
+          if (empresaInput&&empresaHubInput&&!empresaInput.value.trim()&&empresaHubInput.value===EMPRESA_GENERICA_HUB) empresaInput.value="Não informado";
+          if (submitBtn) { submitBtn.disabled=true; submitBtn.textContent="Enviando..."; }
+        });
+        iframe.addEventListener("load",function(){
+          if(successBox)successBox.style.display="block";
+          if(submitBtn){submitBtn.disabled=false;submitBtn.textContent="Mensagem enviada!";}
+          if(form)form.reset();
+          if(empresaInput)delete empresaInput.dataset.editadoManualmente;
+          if(empresaHubInput)empresaHubInput.value="";
+          if(empresaHint)empresaHint.textContent="";
+          if(telefoneErro)telefoneErro.textContent="";
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

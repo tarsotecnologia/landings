@@ -40,66 +40,85 @@
   }
   </script>
   <meta charset="UTF-8" />
-  <title>Automatize o que trava sua operação | Tarso</title>
+  <title>Automatize sua operação e pare de perder tempo com processos manuais | Tarso</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Sua equipe ainda depende de WhatsApp, planilhas e processos manuais? A Tarso resolve isso com automação rápida e sem complicação." />
+  <meta name="description" content="Sua equipe ainda depende de WhatsApp, planilhas e processos manuais? A Tarso automatiza atendimento, vendas e operação em semanas — sem burocracia." />
   <link rel="stylesheet" href="assets/css/style2.css" />
   <style>
+    /* ── WhatsApp button ── */
     .wa-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 16px 32px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff; font-weight: 700; font-size: .95rem;
+      padding: 14px 28px; border-radius: 999px; text-decoration: none;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 24px rgba(37,211,102,.35);
     }
     .wa-btn:hover { background: #1ebe58; transform: translateY(-2px); }
-    .wa-icon { width: 22px; height: 22px; flex-shrink: 0; }
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .pain-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-sm);
-      padding: 24px;
-    }
-    .pain-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
-    .pain-card h3 { margin: 0 0 8px; font-size: 1rem; color: var(--text); }
-    .pain-card p { margin: 0; font-size: .9rem; color: var(--muted); }
-    .cta-center { text-align: center; padding: 80px 0 60px; }
-    .cta-center h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 12px; }
-    .cta-center p { color: var(--muted); margin-bottom: 28px; font-size: 1rem; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(37,211,102,0.12);
-      border: 1px solid rgba(37,211,102,0.25);
-      color: #6ee7b7;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-      letter-spacing: .03em;
-    }
-    .sub-note { color: var(--muted); font-size: .82rem; margin-top: 14px; }
+    .wa-btn.sm { padding: 11px 22px; font-size: .88rem; }
+    .wa-icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ── Hero dual CTA ── */
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 28px; }
+
+    /* ── Trust bar ── */
+    .trust-bar { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 24px; }
+    .trust-item { display: flex; align-items: center; gap: 7px; font-size: .82rem; color: var(--muted); }
+    .trust-item::before { content: "✓"; color: #25D366; font-weight: 700; }
+
+    /* ── Stats band ── */
+    .stats-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+    .stat-card { background: var(--surface-strong); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 28px 24px; text-align: center; }
+    .stat-card strong { display: block; font-size: 2rem; color: var(--primary); font-weight: 800; }
+    .stat-card p { margin: 6px 0 0; font-size: .88rem; color: var(--muted); }
+
+    /* ── Pain grid ── */
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-top: 40px; }
+    .pain-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-sm); padding: 26px; }
+    .pain-card .icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .pain-card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .pain-card p { margin: 0; font-size: .88rem; color: var(--muted); }
+
+    /* ── Feature grid ── */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 48px; }
+    .feature-card { border: 1px solid rgba(18,199,195,.18); border-radius: var(--radius-sm); padding: 30px 26px; }
+    .feature-card .f-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .feature-card h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--primary); }
+    .feature-card p { margin: 0; font-size: .88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Steps ── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 48px; counter-reset: step; }
+    .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 28px 24px; position: relative; }
+    .step-num { width: 40px; height: 40px; border-radius: 999px; background: rgba(18,199,195,.15); border: 1px solid rgba(18,199,195,.3); color: var(--primary); font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .step-card h4 { margin: 0 0 8px; font-size: 1rem; }
+    .step-card p { margin: 0; font-size: .87rem; color: var(--muted); }
+
+    /* ── CTA band ── */
+    .cta-band { background: linear-gradient(135deg, rgba(18,199,195,.12), rgba(125,211,252,.06)); border: 1px solid rgba(18,199,195,.2); border-radius: var(--radius); padding: 56px 48px; text-align: center; }
+    .cta-band h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin: 0 0 10px; }
+    .cta-band p { color: var(--muted); margin: 0 0 28px; }
+    .cta-band-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    /* ── Section head ── */
+    .section-head { text-align: center; max-width: 620px; margin: 0 auto 48px; }
+    .section-head h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 14px 0 10px; }
+    .section-head p { color: var(--muted); margin: 0; }
+
+    /* ── Footer ── */
+    footer { background: rgba(0,0,0,.3); border-top: 1px solid var(--border); padding: 40px 0; margin-top: 0; }
+    .footer-inner { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    .footer-brand img { height: 28px; }
+    .footer-info { font-size: .8rem; color: var(--muted); margin-top: 8px; line-height: 1.7; }
+    .footer-right { text-align: right; font-size: .8rem; color: var(--muted); line-height: 1.7; }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } .footer-right { text-align: left; } }
   </style>
 </head>
 <body>
 
+  <!-- ══ HEADER ══ -->
   <header class="hero">
     <div class="container">
       <div class="topbar">
-        <a href="#" class="brand" aria-label="Tarso">
+        <a href="https://tarso.tech" class="brand" aria-label="Tarso" target="_blank" rel="noopener">
           <img src="assets/images/tarso-logo.png" alt="Tarso Tecnologia" />
         </a>
         <a href="https://wa.me/5511918224060?text=Ol%C3%A1%21+Quero+automatizar+processos+na+minha+empresa." onclick="gtag_report_conversion(); return true;" class="wa-btn" target="_blank" rel="noopener">
@@ -125,63 +144,142 @@
     </div>
   </header>
 
+  <!-- ══ STATS ══ -->
   <section class="section section-sm">
     <div class="container">
-      <div style="text-align:center; margin-bottom: 40px;">
-        <span class="eyebrow">Reconhece algum desses?</span>
-        <h2 style="font-size: clamp(1.4rem, 2.5vw, 1.9rem); margin-top: 16px;">Dores que a Tarso resolve na prática</h2>
+      <div class="stats-band">
+        <div class="stat-card">
+          <strong>WhatsApp</strong>
+          <p>O canal mais usado — e mais caótico — nas pequenas e médias empresas brasileiras.</p>
+        </div>
+        <div class="stat-card">
+          <strong>Planilhas</strong>
+          <p>Ferramentas que viram sistemas por falta de alternativa simples e acessível.</p>
+        </div>
+        <div class="stat-card">
+          <strong>Retrabalho</strong>
+          <p>A consequência inevitável de processos desconectados e sem automação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DORES ══ -->
+  <section class="section" id="dores">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Você reconhece isso?</span>
+        <h2>Os gargalos que consomem sua operação todos os dias</h2>
+        <p>Se pelo menos dois desses pontos fazem sentido para o seu negócio, a Tarso pode ajudar.</p>
       </div>
       <div class="pain-grid">
         <div class="pain-card">
           <div class="icon">💬</div>
-          <h3>Atendimento no grito</h3>
-          <p>Mensagens perdidas, cliente sem resposta, equipe sobrecarregada no WhatsApp.</p>
+          <h3>Atendimento no limite</h3>
+          <p>Mensagens acumulando, clientes sem resposta e equipe sobrecarregada no WhatsApp o dia todo.</p>
         </div>
         <div class="pain-card">
           <div class="icon">📊</div>
           <h3>Planilha como sistema</h3>
-          <p>Retrabalho, dados errados, ninguém sabe o número real da operação.</p>
+          <p>Dados duplicados, versões diferentes, ninguém confia no número que está na tela.</p>
         </div>
         <div class="pain-card">
           <div class="icon">🔁</div>
-          <h3>Processo repetitivo</h3>
-          <p>Tarefas manuais que deveriam ser automáticas consomem o dia inteiro da equipe.</p>
+          <h3>Tarefas que se repetem todo dia</h3>
+          <p>Copiar, colar, encaminhar, confirmar — trabalho que poderia ser automático e consome horas.</p>
         </div>
         <div class="pain-card">
           <div class="icon">📉</div>
-          <h3>Lead sem follow-up</h3>
-          <p>Oportunidades escapam porque ninguém acompanha no tempo certo.</p>
+          <h3>Lead que some sem retorno</h3>
+          <p>Oportunidades que chegam e somem porque ninguém acompanha no momento certo.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">🧩</div>
+          <h3>Sistemas que não conversam</h3>
+          <p>WhatsApp, e-mail, CRM e ERP funcionando em ilhas separadas, sem integração nenhuma.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">📋</div>
+          <h3>Proposta feita na mão</h3>
+          <p>Cada proposta vira uma tarefa manual demorada — formatação, envio e follow-up sem padrão.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="como">
+  <!-- ══ SOLUÇÃO ══ -->
+  <section class="section" id="solucao">
     <div class="container">
-      <div style="max-width: 640px; margin: 0 auto; text-align: center;">
-        <span class="eyebrow">O que a Tarso faz</span>
-        <h2 style="font-size: clamp(1.4rem, 2.5vw, 2rem); margin: 16px 0 12px;">Automação rápida, resultado visível em semanas</h2>
-        <p style="color: var(--muted); margin-bottom: 0;">Integramos WhatsApp, CRM, atendimento e fluxos internos — entregando menos trabalho manual e mais controle para o gestor.</p>
+      <div class="section-head">
+        <span class="eyebrow">O que a Tarso entrega</span>
+        <h2>Automação prática para quem não tem time de TI interno</h2>
+        <p>Conectamos suas ferramentas, eliminamos o trabalho manual e colocamos tudo funcionando — rápido.</p>
       </div>
-
-      <div class="pain-grid" style="margin-top:48px; max-width: 860px; margin-left: auto; margin-right: auto;">
-        <div class="pain-card" style="border-color: rgba(18,199,195,0.2);">
-          <h3 style="color: var(--primary);">Automação de atendimento</h3>
-          <p>Bots, fluxos e integrações que respondem, qualificam e encaminham sem depender de alguém.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="f-icon">🤖</div>
+          <h3>Automação de atendimento</h3>
+          <p>Chatbot e fluxos no WhatsApp que respondem, qualificam e encaminham — sem depender de ninguém da equipe.</p>
         </div>
-        <div class="pain-card" style="border-color: rgba(18,199,195,0.2);">
-          <h3 style="color: var(--primary);">CRM e follow-up automático</h3>
-          <p>Pipeline visível, lembretes e acompanhamento de leads sem planilha nem caos.</p>
+        <div class="feature-card">
+          <div class="f-icon">🎯</div>
+          <h3>CRM e follow-up automático</h3>
+          <p>Pipeline visível, lembretes automáticos e acompanhamento de leads sem planilha nem caos.</p>
         </div>
-        <div class="pain-card" style="border-color: rgba(18,199,195,0.2);">
-          <h3 style="color: var(--primary);">Integração de ferramentas</h3>
-          <p>WhatsApp, e-mail, ERP e sistemas da empresa conversando no mesmo fluxo.</p>
+        <div class="feature-card">
+          <div class="f-icon">🔗</div>
+          <h3>Integração de ferramentas</h3>
+          <p>WhatsApp, e-mail, CRM, ERP e sistemas internos conversando num fluxo único e confiável.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">📄</div>
+          <h3>Propostas e documentos automáticos</h3>
+          <p>Geração, envio e acompanhamento de propostas sem depender de cópia manual nem planilha.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">📊</div>
+          <h3>Painel de indicadores simples</h3>
+          <p>Visibilidade real do que está acontecendo — atendimento, vendas e operação num único lugar.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">⚡</div>
+          <h3>Implantação rápida</h3>
+          <p>Sem meses de projeto nem equipe técnica interna. As primeiras automações funcionando em semanas.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-sm">
+  <!-- ══ COMO FUNCIONA ══ -->
+  <section class="section" id="processo">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Três etapas para sua operação parar de depender de trabalho manual</h2>
+        <p>Um processo simples, sem reuniões infinitas e sem exigir equipe de TI da sua parte.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h4>Diagnóstico dos gargalos</h4>
+          <p>Conversa de 30 minutos para entender quais processos consomem mais tempo, onde está o retrabalho e o que dá para automatizar primeiro.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h4>Proposta de automação</h4>
+          <p>Mapeamos o fluxo ideal, escolhemos as ferramentas certas e apresentamos o que será automatizado — com prazo e escopo claros.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h4>Implantação e resultado</h4>
+          <p>Colocamos tudo funcionando, treinamos a equipe e acompanhamos para garantir que a automação gere resultado de verdade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA BAND ══ -->
+  <section class="section section-sm">
     <div class="container">
       <div class="cta-center">
         <h2>Pronto para parar de apagar incêndio?</h2>
@@ -195,13 +293,265 @@
     </div>
   </section>
 
+  <!-- ══ FORMULÁRIO ══ -->
+  <section class="section" id="formulario">
+    <div class="container">
+      <div class="form-section">
+        <div class="info-card">
+          <span class="eyebrow">Para quem é</span>
+          <h3>Empresas que querem parar de depender de processos manuais</h3>
+          <p>Este diagnóstico faz mais sentido para negócios que já sentem o peso do retrabalho e querem uma solução rápida e sem complexidade.</p>
+
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Pequenas e médias empresas</strong>
+                <span>Que usam WhatsApp, planilhas e ferramentas desconectadas no dia a dia.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Equipes comerciais e de atendimento</strong>
+                <span>Sobrecarregadas com tarefas repetitivas que poderiam ser automatizadas.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Gestores que querem controle</strong>
+                <span>Sem precisar depender de alguém para saber o que está acontecendo na operação.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Sem equipe de TI interna</strong>
+                <span>A Tarso cuida de toda a parte técnica — você foca no negócio.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <span class="eyebrow">Avaliação gratuita</span>
+          <h3>Fale com a Tarso</h3>
+          <p>Preencha abaixo e nossa equipe entra em contato para entender o seu cenário e mapear o que pode ser automatizado.</p>
+
+          <div id="success-box-1" class="success-message" style="display:none;">
+            <h4>Mensagem enviada com sucesso!</h4>
+            <p>Recebemos sua solicitação. Em breve a equipe da Tarso entra em contato para dar os próximos passos.</p>
+          </div>
+
+          <form id="form-1" action="https://hub.tarso.tech/api/lp_captura_leads" method="POST" target="form_target_1">
+            <div class="form-grid">
+              <div class="full"><input class="input" type="text" name="nome" placeholder="Seu nome" required /></div>
+              <div class="full">
+                <input class="input" type="tel" name="telefone" placeholder="WhatsApp com DDD" required />
+                <small id="telefoneErro-1" class="error-note"></small>
+              </div>
+              <div class="full"><input class="input" type="email" name="email" placeholder="E-mail (opcional)" /></div>
+            </div>
+
+            <input type="hidden" name="origem" value="LP Playbook ICP1 - Dor Operacional" />
+            <input type="hidden" name="utm_source" id="utm_source" value="" />
+            <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+            <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+            <input type="hidden" name="icp_id" value="playbook-1" />
+
+            <div style="margin-top:18px;">
+              <button type="submit" id="submit-btn-1" class="btn btn-primary" style="width:100%;">
+                Quero a avaliação gratuita
+              </button>
+            </div>
+            <p class="form-footnote micro-note" style="margin:12px 0 0;">
+              Ou prefere direto no WhatsApp? <a href="https://wa.me/5511918224060?text=Ol%C3%A1%21+Quero+automatizar+processos+na+minha+empresa." target="_blank" rel="noopener" style="color:var(--primary);">Clique aqui</a>.
+            </p>
+          </form>
+          <iframe name="form_target_1" id="form_target_1" style="width:0;height:0;border:0;visibility:hidden;"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2>O que você precisa saber antes de falar com a Tarso</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Preciso ter equipe de TI interna para contratar a Tarso?</summary>
+          <p>Não. A Tarso cuida de toda a parte técnica — desde o mapeamento dos processos até a implantação e o suporte. Você não precisa de equipe interna.</p>
+        </details>
+        <details>
+          <summary>Em quanto tempo as automações começam a funcionar?</summary>
+          <p>Depende da complexidade, mas as primeiras automações costumam estar rodando em 2 a 6 semanas após o início do projeto.</p>
+        </details>
+        <details>
+          <summary>O diagnóstico tem algum custo?</summary>
+          <p>Não. A avaliação inicial é gratuita e serve para entender o seu cenário antes de qualquer proposta comercial.</p>
+        </details>
+        <details>
+          <summary>Quais ferramentas a Tarso integra?</summary>
+          <p>WhatsApp, CRM, ERP, e-mail, Google Sheets, plataformas de e-commerce, ERPs nacionais e internacionais, entre outros. Na conversa inicial, avaliamos o seu ambiente específico.</p>
+        </details>
+        <details>
+          <summary>E depois da implantação, quem mantém as automações?</summary>
+          <p>A Tarso oferece contratos de sustentação e evolução contínua. Não é entrega e abandono — ficamos disponíveis para ajustar e expandir o que foi feito.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <div class="container footer-row">
-      <span>Copyright ©2026 Tarso · Todos os direitos reservados.</span>
-      <span>Automação e tecnologia para empresas que querem crescer sem travar.</span>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <a href="https://tarso.tech" target="_blank" rel="noopener" class="footer-brand">
+            <img src="assets/images/tarso-logo.png" alt="Tarso Tecnologia" />
+          </a>
+          <div class="footer-info">
+            Tecnologia para automatizar e escalar empresas.<br />
+            Av. Paulista, 2028 CJ 1251 — São Paulo/SP<br />
+            CNPJ: 42.282.250/0001-01
+          </div>
+        </div>
+        <div class="footer-right">
+          Copyright ©2026 Tarso · Todos os direitos reservados.<br />
+          <a href="https://tarso.tech" target="_blank" rel="noopener" style="color:var(--primary);">tarso.tech</a>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      ["utm_source","utm_medium","utm_campaign"].forEach(function(name) {
+        const el = document.getElementById(name);
+        if (el && params.get(name)) el.value = params.get(name);
+      });
+
+      const form = document.getElementById("form-1");
+      const iframe = document.getElementById("form_target_1");
+      const successBox = document.getElementById("success-box-1");
+      const submitBtn = document.getElementById("submit-btn-1");
+      const emailInput = form?.querySelector('input[name="email"]');
+      const empresaInput = form?.querySelector('input[name="empresa"]');
+      const telefoneInput = form?.querySelector('input[name="telefone"]');
+      let empresaHubInput = form?.querySelector('input[name="empresa_hub"]');
+      let empresaHint = document.getElementById("empresaHint-1");
+      let telefoneErro = document.getElementById("telefoneErro-1");
+
+      const DOMINIOS_GENERICOS = ["gmail.com","hotmail.com","outlook.com","outlook.com.br","live.com","live.com.br","msn.com","yahoo.com","yahoo.com.br","icloud.com","me.com","uol.com.br","bol.com.br","terra.com.br","proton.me","protonmail.com","aol.com","ig.com.br","globo.com"];
+      const EMPRESA_GENERICA_HUB = "Pessoa Física / Email genérico";
+
+      function garantirCampoOcultoEmpresaHub() {
+        if (!form) return null;
+        if (!empresaHubInput) {
+          empresaHubInput = document.createElement("input");
+          empresaHubInput.type = "hidden"; empresaHubInput.name = "empresa_hub"; empresaHubInput.id = "empresa_hub";
+          form.appendChild(empresaHubInput);
+        }
+        return empresaHubInput;
+      }
+
+      function extrairEmpresaDoEmail(email) {
+        const valor = (email || "").trim().toLowerCase();
+        if (!valor || !valor.includes("@")) return "";
+        const dominio = valor.split("@")[1];
+        if (!dominio || DOMINIOS_GENERICOS.includes(dominio)) return "";
+        const partes = dominio.split(".");
+        const base = partes[0].replace(/[^a-z0-9-]/gi," ").replace(/[-_]+/g," ").trim();
+        if (!base) return "";
+        return base.split(" ").map(function(p){ return p.charAt(0).toUpperCase()+p.slice(1); }).join(" ");
+      }
+
+      function aplicarSugestaoEmpresa() {
+        if (!emailInput || !empresaInput) return;
+        const hidden = garantirCampoOcultoEmpresaHub();
+        const empresaSugerida = extrairEmpresaDoEmail(emailInput.value);
+        const campoEditado = empresaInput.dataset.editadoManualmente === "true";
+        if (empresaSugerida) {
+          if (!campoEditado && !empresaInput.value.trim()) empresaInput.value = empresaSugerida;
+          if (hidden) hidden.value = empresaInput.value.trim() || empresaSugerida;
+          if (empresaHint) empresaHint.textContent = "Sugestão automática baseada no domínio do e-mail corporativo.";
+        } else {
+          if (hidden) hidden.value = EMPRESA_GENERICA_HUB;
+          if (empresaHint) empresaHint.textContent = "Para e-mails genéricos, a empresa pode ser revisada no atendimento.";
+        }
+      }
+
+      function somenteDigitos(v){ return (v||"").replace(/\D/g,""); }
+      function mascaraTelefoneBrasil(v) {
+        const d = somenteDigitos(v).slice(0,11);
+        if (d.length<=2) return d;
+        if (d.length<=6) return "("+d.slice(0,2)+") "+d.slice(2);
+        if (d.length<=10) return "("+d.slice(0,2)+") "+d.slice(2,6)+"-"+d.slice(6);
+        return "("+d.slice(0,2)+") "+d.slice(2,7)+"-"+d.slice(7);
+      }
+      function validarWhatsApp(v) {
+        const d = somenteDigitos(v);
+        if (!d.length) return {valido:true,mensagem:""};
+        if (d.length<10||d.length>11) return {valido:false,mensagem:"Digite um telefone com DDD válido."};
+        if (d.length===11&&d[2]!=="9") return {valido:false,mensagem:"Para celular/WhatsApp, inclua o 9 após o DDD."};
+        return {valido:true,mensagem:""};
+      }
+
+      function configurarEventos() {
+        garantirCampoOcultoEmpresaHub();
+        if (emailInput) { emailInput.addEventListener("input",aplicarSugestaoEmpresa); emailInput.addEventListener("blur",aplicarSugestaoEmpresa); }
+        if (empresaInput) {
+          empresaInput.addEventListener("input",function(){
+            const v = empresaInput.value.trim();
+            empresaInput.dataset.editadoManualmente = v?"true":"";
+            if (empresaHubInput&&v) empresaHubInput.value = v;
+          });
+        }
+        if (telefoneInput) {
+          telefoneInput.addEventListener("input",function(e){
+            e.target.value = mascaraTelefoneBrasil(e.target.value);
+            const r = validarWhatsApp(e.target.value);
+            if (!e.target.value.trim()) { if(telefoneErro)telefoneErro.textContent=""; telefoneInput.setCustomValidity(""); return; }
+            if (!r.valido) { if(telefoneErro)telefoneErro.textContent=r.mensagem; telefoneInput.setCustomValidity(r.mensagem); }
+            else { if(telefoneErro)telefoneErro.textContent=""; telefoneInput.setCustomValidity(""); }
+          });
+          telefoneInput.addEventListener("blur",function(){
+            const r = validarWhatsApp(telefoneInput.value);
+            if (!r.valido&&telefoneInput.value.trim()) { if(telefoneErro)telefoneErro.textContent=r.mensagem; telefoneInput.setCustomValidity(r.mensagem); telefoneInput.reportValidity(); }
+          });
+        }
+      }
+
+      if (form && iframe) {
+        configurarEventos();
+        form.addEventListener("submit",function(e){
+          aplicarSugestaoEmpresa();
+          if (telefoneInput) {
+            const r = validarWhatsApp(telefoneInput.value);
+            if (!r.valido) { e.preventDefault(); if(telefoneErro)telefoneErro.textContent=r.mensagem; telefoneInput.setCustomValidity(r.mensagem); telefoneInput.reportValidity(); return; }
+            telefoneInput.setCustomValidity("");
+          }
+          if (empresaInput&&empresaHubInput&&!empresaInput.value.trim()&&empresaHubInput.value===EMPRESA_GENERICA_HUB) empresaInput.value="Não informado";
+          if (submitBtn) { submitBtn.disabled=true; submitBtn.textContent="Enviando..."; }
+        });
+        iframe.addEventListener("load",function(){
+          if(successBox)successBox.style.display="block";
+          if(submitBtn){submitBtn.disabled=false;submitBtn.textContent="Mensagem enviada!";}
+          if(form)form.reset();
+          if(empresaInput)delete empresaInput.dataset.editadoManualmente;
+          if(empresaHubInput)empresaHubInput.value="";
+          if(empresaHint)empresaHint.textContent="";
+          if(telefoneErro)telefoneErro.textContent="";
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>
