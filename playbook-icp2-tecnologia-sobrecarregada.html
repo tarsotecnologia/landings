@@ -44,6 +44,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Time interno insuficiente, backlog acumulado e sistemas desconectados? A Tarso Tecnologia entra como parceiro técnico e entrega o que seu time não consegue absorver." />
   <link rel="stylesheet" href="assets/css/style2.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     .wa-btn {
       display: inline-flex; align-items: center; gap: 10px;
@@ -65,12 +66,14 @@
     .stat-card p { margin: 6px 0 0; font-size: .88rem; color: var(--muted); }
     .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-top: 40px; }
     .pain-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-sm); padding: 26px; }
-    .pain-card .icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .pain-card .icon { margin-bottom: 14px; color: var(--primary); }
+    .pain-card .icon svg { width: 28px; height: 28px; stroke: var(--primary); stroke-width: 1.5; display: block; }
     .pain-card h3 { margin: 0 0 8px; font-size: 1rem; }
     .pain-card p { margin: 0; font-size: .88rem; color: var(--muted); }
     .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 48px; }
     .feature-card { border: 1px solid rgba(18,199,195,.18); border-radius: var(--radius-sm); padding: 30px 26px; }
-    .feature-card .f-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .feature-card .f-icon { margin-bottom: 16px; }
+    .feature-card .f-icon svg { width: 26px; height: 26px; stroke: var(--primary); stroke-width: 1.5; display: block; }
     .feature-card h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--primary); }
     .feature-card p { margin: 0; font-size: .88rem; color: var(--muted); line-height: 1.6; }
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 48px; }
@@ -200,32 +203,32 @@
       </div>
       <div class="pain-grid">
         <div class="pain-card">
-          <div class="icon">📋</div>
+          <div class="icon"><i data-lucide="list-todo"></i></div>
           <h3>Backlog que não zera</h3>
           <p>Itens acumulando, sprints atrasando e a sensação de que o time corre mas não avança.</p>
         </div>
         <div class="pain-card">
-          <div class="icon">🧑‍💻</div>
+          <div class="icon"><i data-lucide="user-search"></i></div>
           <h3>Vaga técnica aberta há meses</h3>
           <p>Contratação demorada, candidatos escassos e o projeto travado esperando a pessoa certa.</p>
         </div>
         <div class="pain-card">
-          <div class="icon">🔗</div>
+          <div class="icon"><i data-lucide="unplug"></i></div>
           <h3>Sistemas que não conversam</h3>
           <p>ERP, CRM, BI e e-commerce funcionando em silos, sem integração e gerando retrabalho.</p>
         </div>
         <div class="pain-card">
-          <div class="icon">🐌</div>
+          <div class="icon"><i data-lucide="gauge"></i></div>
           <h3>Baixa velocidade de entrega</h3>
           <p>Deploy manual, sem CI/CD, sem DevOps estruturado — cada entrega vira um risco.</p>
         </div>
         <div class="pain-card">
-          <div class="icon">🏚️</div>
+          <div class="icon"><i data-lucide="server-crash"></i></div>
           <h3>Legado limitando o crescimento</h3>
           <p>Sistemas antigos que ninguém quer tocar mas que bloqueiam novas funcionalidades.</p>
         </div>
         <div class="pain-card">
-          <div class="icon">📱</div>
+          <div class="icon"><i data-lucide="smartphone"></i></div>
           <h3>Produto digital que precisa evoluir</h3>
           <p>App, portal ou plataforma parada na fila enquanto o roadmap cresce e o mercado avança.</p>
         </div>
@@ -243,32 +246,32 @@
       </div>
       <div class="feature-grid">
         <div class="feature-card">
-          <div class="f-icon">🧑‍💻</div>
+          <div class="f-icon"><i data-lucide="users"></i></div>
           <h3>Squad as a Service</h3>
           <p>Desenvolvedores, arquitetos e especialistas integrados ao seu time e processo — sem processo longo de contratação.</p>
         </div>
         <div class="feature-card">
-          <div class="f-icon">🔗</div>
+          <div class="f-icon"><i data-lucide="link-2"></i></div>
           <h3>Integração de sistemas</h3>
           <p>ERP, CRM, BI, APIs e plataformas conectados num fluxo único, confiável e rastreável.</p>
         </div>
         <div class="feature-card">
-          <div class="f-icon">☁️</div>
+          <div class="f-icon"><i data-lucide="cloud"></i></div>
           <h3>Cloud e DevOps</h3>
           <p>Infraestrutura, pipelines de CI/CD e automação de deploy para acelerar e dar segurança à entrega.</p>
         </div>
         <div class="feature-card">
-          <div class="f-icon">🚀</div>
+          <div class="f-icon"><i data-lucide="rocket"></i></div>
           <h3>Evolução de produto digital</h3>
           <p>App, portal, marketplace ou plataforma evoluindo com ritmo, qualidade e alinhamento ao roadmap.</p>
         </div>
         <div class="feature-card">
-          <div class="f-icon">🏗️</div>
+          <div class="f-icon"><i data-lucide="layers"></i></div>
           <h3>Modernização de legado</h3>
           <p>Refatoração, reescrita e migração de sistemas antigos sem ruptura operacional.</p>
         </div>
         <div class="feature-card">
-          <div class="f-icon">📊</div>
+          <div class="f-icon"><i data-lucide="bar-chart-2"></i></div>
           <h3>Fábrica de software</h3>
           <p>Desenvolvimento de features, módulos e projetos completos com entrega estruturada e visível.</p>
         </div>
@@ -583,5 +586,6 @@
       }
     })();
   </script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
